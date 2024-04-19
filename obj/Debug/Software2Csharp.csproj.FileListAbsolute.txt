@@ -1,0 +1,10 @@
+C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\Software2Csharp.exe.config
+C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\Software2Csharp.exe
+C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\Software2Csharp.pdb
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.csproj.AssemblyReference.cache
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormLogin.resources
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.Properties.Resources.resources
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.csproj.GenerateResource.cache
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.csproj.CoreCompileInputs.cache
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.exe
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.pdb
