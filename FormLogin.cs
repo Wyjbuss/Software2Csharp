@@ -15,9 +15,11 @@ namespace Software2Csharp
     public partial class FormLogin : Form
     {
         string locationNameContryCode;
+        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=sqlUser;pwd=";
         public FormLogin()
         {
             InitializeComponent();
+            
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace Software2Csharp
             labelPassword.Text = "Password:";
             labelUsername.Text = "Username:";
             buttonLogin.Text = "Login";
+            labelErrorText.Text = "Incorrect login";
         }
         private void spanishLanguage()
         {
@@ -63,6 +66,7 @@ namespace Software2Csharp
             labelPassword.Text = "Contraseña:";
             labelUsername.Text = "Nombre de usuario:";
             buttonLogin.Text = "Acceso";
+            labelErrorText.Text = "Inicio de sesión incorrecto";
         }
 
         private void domainUpDownLocation_SelectedItemChanged(object sender, EventArgs e)
@@ -75,6 +79,74 @@ namespace Software2Csharp
             {
                 spanishLanguage();
             }
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            // check the input feilds have no errors
+            if (loginInputsNoErrors())
+            {
+                // execute login is correct check with database
+                if (onLoginSuccess())
+                {
+                    // login here, open new page, stay signed in
+                }
+                else
+                {
+                    if (domainUpDownLocation.Text == "English")
+                    {
+                        onLoginErrorMessage("Wrong Username or Password. Try Again.");
+                    }
+                    else if (domainUpDownLocation.Text == "Spanish")
+                    {
+                        onLoginErrorMessage("Nombre de usuario o contraseña incorrectos. Vuelve a intentarlo.");
+                    }
+                     
+                }
+            }
+            else
+            {
+                // error display that feild is empty or invalid
+                if (domainUpDownLocation.Text == "English")
+                {
+                    onLoginErrorMessage("Login fields are empty or invalid.");
+                }
+                else if (domainUpDownLocation.Text == "Spanish")
+                {
+                    onLoginErrorMessage("Los campos de inicio de sesión están vacíos o no son válidos.");
+                }
+                
+                
+            }
+        }
+
+        private bool loginInputsNoErrors()
+        {
+            if (textBoxUsername.Text != null || textBoxUsername.Text != "" || textBoxPassword.Text != null || textBoxPassword.Text !="")
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void onLoginErrorMessage(string message)
+        {
+            labelErrorText.Text = message;
+            labelErrorText.Visible = true;
+        }
+
+        private bool onLoginSuccess()
+        {
+            // if login check with database is success the return true
+            if (textBoxUsername.Text == "test" && textBoxPassword.Text == "test")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }
