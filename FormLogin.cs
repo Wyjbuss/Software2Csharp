@@ -87,7 +87,7 @@ namespace Software2Csharp
             if (loginInputsNoErrors())
             {
                 // execute login is correct check with database
-                if (onLoginSuccess())
+                if (checkLoginSuccess())
                 {
                     // login here, open new page, stay signed in
                 }
@@ -95,11 +95,11 @@ namespace Software2Csharp
                 {
                     if (domainUpDownLocation.Text == "English")
                     {
-                        onLoginErrorMessage("Wrong Username or Password. Try Again.");
+                        createLoginErrorMessage("Wrong Username or Password. Try Again.");
                     }
                     else if (domainUpDownLocation.Text == "Spanish")
                     {
-                        onLoginErrorMessage("Nombre de usuario o contraseña incorrectos. Vuelve a intentarlo.");
+                        createLoginErrorMessage("Nombre de usuario o contraseña incorrectos. Vuelve a intentarlo.");
                     }
                      
                 }
@@ -109,11 +109,11 @@ namespace Software2Csharp
                 // error display that feild is empty or invalid
                 if (domainUpDownLocation.Text == "English")
                 {
-                    onLoginErrorMessage("Login fields are empty or invalid.");
+                    createLoginErrorMessage("Login fields are empty or invalid.");
                 }
                 else if (domainUpDownLocation.Text == "Spanish")
                 {
-                    onLoginErrorMessage("Los campos de inicio de sesión están vacíos o no son válidos.");
+                    createLoginErrorMessage("Los campos de inicio de sesión están vacíos o no son válidos.");
                 }
                 
                 
@@ -129,13 +129,17 @@ namespace Software2Csharp
             else return false;
         }
 
-        private void onLoginErrorMessage(string message)
+        private void createLoginErrorMessage(string message)
         {
             labelErrorText.Text = message;
             labelErrorText.Visible = true;
         }
 
-        private bool onLoginSuccess()
+        /// <summary>
+        /// returns true if login entered (username & password) matches in the database
+        /// </summary>
+        /// <returns>true if login entered (username & password) matches in the database</returns>
+        private bool checkLoginSuccess()
         {
             // if login check with database is success the return true
             if (textBoxUsername.Text == "test" && textBoxPassword.Text == "test")
