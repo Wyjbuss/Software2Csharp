@@ -17,7 +17,7 @@ namespace Software2Csharp
     {
         string locationNameContryCode;
         
-        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=";
+        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
         public FormLogin()
         {
             InitializeComponent();
