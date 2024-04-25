@@ -9,17 +9,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace Software2Csharp
 {
     public partial class FormLogin : Form
     {
         string locationNameContryCode;
-        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=sqlUser;pwd=";
+        
+        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=";
         public FormLogin()
         {
             InitializeComponent();
-            
+            MySqlConnection cnn = new MySqlConnection(myConnectionDatabaseString);
+            try
+            {
+                cnn.Open();
+                Console.WriteLine("Connection Open.");
+                cnn.Close();
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Cannot open connection.");
+            }
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
