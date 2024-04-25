@@ -10,22 +10,35 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using System.Web;
 
 namespace Software2Csharp
 {
     public partial class FormLogin : Form
     {
         string locationNameContryCode;
-        
+
+        string usrName;
+        string usrPwd;
+        string sql = "SELECT * FROM user";
         string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
         public FormLogin()
         {
             InitializeComponent();
             MySqlConnection cnn = new MySqlConnection(myConnectionDatabaseString);
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
             try
             {
                 cnn.Open();
                 Console.WriteLine("Connection Open.");
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    usrName += $"{dr.GetString("userName")};";
+                    usrPwd += $"{dr.GetString("password")};";
+                }
+                
+                Console.WriteLine("Username: {0} Password: {1}",usrName,usrPwd);
                 cnn.Close();
             }
             catch (Exception)
