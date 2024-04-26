@@ -17,7 +17,9 @@ namespace Software2Csharp
     public partial class FormLogin : Form
     {
         string locationNameContryCode;
-
+        MySqlConnection cnn;
+        MySqlCommand cmd;
+        MySqlDataReader dr;
         string usrName;
         string usrPwd;
         string sql = "SELECT * FROM user";
@@ -25,21 +27,21 @@ namespace Software2Csharp
         public FormLogin()
         {
             InitializeComponent();
-            MySqlConnection cnn = new MySqlConnection(myConnectionDatabaseString);
-            MySqlCommand cmd = new MySqlCommand(sql, cnn);
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cmd = new MySqlCommand(sql, cnn);
             try
             {
                 cnn.Open();
                 Console.WriteLine("Connection Open.");
-                MySqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    usrName += $"{dr.GetString("userName")};";
-                    usrPwd += $"{dr.GetString("password")};";
-                }
+                dr = cmd.ExecuteReader();
+                //while (dr.Read())
+                //{
+                //    usrName += $"{dr.GetString("userName")};";
+                //    usrPwd += $"{dr.GetString("password")};";
+                //}
                 
-                Console.WriteLine("Username: {0} Password: {1}",usrName,usrPwd);
-                cnn.Close();
+                //Console.WriteLine("Username: {0} Password: {1}",usrName,usrPwd);
+                //cnn.Close();
             }
             catch (Exception)
             {
@@ -112,10 +114,19 @@ namespace Software2Csharp
             // check the input feilds have no errors
             if (loginInputsNoErrors())
             {
+                while (dr.Read())
+                {
+                    usrName += $"{dr.GetString("userName")};";
+                    usrPwd += $"{dr.GetString("password")};";
+                }
+                
                 // execute login is correct check with database
                 if (checkLoginSuccess())
                 {
+                    
                     // login here, open new page, stay signed in
+                    CreateFormUsrLogin(usrName);
+
                 }
                 else
                 {
@@ -146,6 +157,17 @@ namespace Software2Csharp
             }
         }
 
+        private void CreateFormUsrLogin(string userName)
+        {
+            
+            FormAppointmentMain frm = new FormAppointmentMain();
+            frm.setLabelHelloUsr("Hello, "+ userName);
+            frm.Show();
+            Console.WriteLine("Logging in: {0}", userName);
+            cnn.Close();
+            this.Hide();
+        }
+
         private bool loginInputsNoErrors()
         {
             if (textBoxUsername.Text != null || textBoxUsername.Text != "" || textBoxPassword.Text != null || textBoxPassword.Text !="")
@@ -168,7 +190,7 @@ namespace Software2Csharp
         private bool checkLoginSuccess()
         {
             // if login check with database is success the return true
-            if (textBoxUsername.Text == "test" && textBoxPassword.Text == "test")
+            if (textBoxPassword.Text+";" == usrPwd && textBoxUsername.Text+";" == usrName)
             {
                 return true;
             }

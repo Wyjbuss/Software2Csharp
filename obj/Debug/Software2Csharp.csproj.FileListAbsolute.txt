@@ -40,3 +40,4 @@ C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.csproj.CopyComplete
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormAppointmentMain.resources
