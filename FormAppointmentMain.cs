@@ -12,9 +12,11 @@ namespace Software2Csharp
 {
     public partial class FormAppointmentMain : Form
     {
+        public event EventHandler onAppExit;
         public FormAppointmentMain()
         {
             InitializeComponent();
+
         }
 
         private void FormAppointmentMain_Load(object sender, EventArgs e)
@@ -29,6 +31,11 @@ namespace Software2Csharp
         public void closeApp()
         {
 
+        }
+
+        private void FormAppointmentMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            onAppExit.Invoke(this, e);
         }
     }
 }

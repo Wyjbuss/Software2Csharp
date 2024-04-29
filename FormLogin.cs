@@ -11,12 +11,15 @@ using System.Globalization;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Web;
+using System.IO;
 
 namespace Software2Csharp
 {
     public partial class FormLogin : Form
     {
         string locationNameContryCode;
+        string logLoginPath = @"./Login_History.txt";
+        FormAppointmentMain formAppointmentMain;
         MySqlConnection cnn;
         MySqlCommand cmd;
         MySqlDataReader dr;
@@ -160,12 +163,47 @@ namespace Software2Csharp
         private void CreateFormUsrLogin(string userName)
         {
             
-            FormAppointmentMain frm = new FormAppointmentMain();
-            frm.setLabelHelloUsr("Hello, "+ userName);
-            frm.Show();
+            formAppointmentMain = new FormAppointmentMain();
+            formAppointmentMain.setLabelHelloUsr("Hello, "+ userName);
+            formAppointmentMain.Show();
             Console.WriteLine("Logging in: {0}", userName);
             cnn.Close();
+            formAppointmentMain.onAppExit += Frm_onAppExit;
             this.Hide();
+
+            //log the user logging in
+            createSigninLog(userName);
+        }
+
+        private void Frm_onAppExit( object sender, EventArgs e)
+        {
+            formAppointmentMain.onAppExit -= Frm_onAppExit;
+            this.Close();
+        }
+
+        private void createSigninLog(string usr)
+        {
+            if (!string.IsNullOrEmpty(usr))
+            {
+                if (!File.Exists(logLoginPath))
+                {
+                    //create the file
+                    using (StreamWriter sw = File.CreateText(logLoginPath))
+                    {
+                        // write the log here
+                        sw.WriteLine("Logged in as: {0} on/at {1}",usr,DateTime.Now);
+                    }
+                }
+                else
+                {
+
+                using (StreamWriter sw = File.AppendText(logLoginPath))
+                {
+                    // write the log here
+                    sw.WriteLine("Logged in as: {0} on/at {1}", usr, DateTime.Now);
+                }
+                }
+            }
         }
 
         private bool loginInputsNoErrors()

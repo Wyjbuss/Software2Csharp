@@ -48,6 +48,7 @@
             this.Controls.Add(this.labelHelloUsr);
             this.Name = "FormAppointmentMain";
             this.Text = "FormAppointmentMain";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAppointmentMain_FormClosed);
             this.Load += new System.EventHandler(this.FormAppointmentMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
