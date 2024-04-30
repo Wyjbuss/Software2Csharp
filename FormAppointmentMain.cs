@@ -37,5 +37,10 @@ namespace Software2Csharp
         {
             onAppExit.Invoke(this, e);
         }
+
+        private void treeViewTabs_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+           
+        }
     }
 }
