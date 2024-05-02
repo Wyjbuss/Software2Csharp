@@ -28,100 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Customers");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Appointments");
             this.labelHelloUsr = new System.Windows.Forms.Label();
-            this.treeViewTabs = new System.Windows.Forms.TreeView();
-            this.groupBoxCustomers = new System.Windows.Forms.GroupBox();
-            this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
-            this.dataGridViewCustomers = new System.Windows.Forms.DataGridView();
-            this.groupBoxCustomers.SuspendLayout();
-            this.groupBoxAppointments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).BeginInit();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.panelContainer = new System.Windows.Forms.Panel();
+            this.guna2ButtonCustomers = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonAppointments = new Guna.UI2.WinForms.Guna2Button();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelHelloUsr
             // 
             this.labelHelloUsr.AutoSize = true;
-            this.labelHelloUsr.Location = new System.Drawing.Point(53, 33);
+            this.labelHelloUsr.Location = new System.Drawing.Point(29, 27);
             this.labelHelloUsr.Name = "labelHelloUsr";
             this.labelHelloUsr.Size = new System.Drawing.Size(59, 13);
             this.labelHelloUsr.TabIndex = 0;
             this.labelHelloUsr.Text = "Hello, User";
             // 
-            // treeViewTabs
+            // panelTop
             // 
-            this.treeViewTabs.Location = new System.Drawing.Point(22, 60);
-            this.treeViewTabs.Name = "treeViewTabs";
-            treeNode1.Name = "tabCustomers";
-            treeNode1.Text = "Customers";
-            treeNode2.Name = "tabAppointments";
-            treeNode2.Text = "Appointments";
-            this.treeViewTabs.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            this.treeViewTabs.Size = new System.Drawing.Size(121, 47);
-            this.treeViewTabs.TabIndex = 1;
-            this.treeViewTabs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewTabs_AfterSelect);
+            this.panelTop.BackColor = System.Drawing.Color.Honeydew;
+            this.panelTop.Controls.Add(this.guna2ButtonAppointments);
+            this.panelTop.Controls.Add(this.labelHelloUsr);
+            this.panelTop.Controls.Add(this.guna2ButtonCustomers);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(946, 64);
+            this.panelTop.TabIndex = 1;
             // 
-            // groupBoxCustomers
+            // panelContainer
             // 
-            this.groupBoxCustomers.Controls.Add(this.groupBoxAppointments);
-            this.groupBoxCustomers.Enabled = false;
-            this.groupBoxCustomers.Location = new System.Drawing.Point(188, 33);
-            this.groupBoxCustomers.Name = "groupBoxCustomers";
-            this.groupBoxCustomers.Size = new System.Drawing.Size(721, 464);
-            this.groupBoxCustomers.TabIndex = 2;
-            this.groupBoxCustomers.TabStop = false;
-            this.groupBoxCustomers.Text = "Cutomers";
-            this.groupBoxCustomers.Visible = false;
+            this.panelContainer.BackColor = System.Drawing.Color.Wheat;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 64);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(946, 476);
+            this.panelContainer.TabIndex = 2;
             // 
-            // groupBoxAppointments
+            // guna2ButtonCustomers
             // 
-            this.groupBoxAppointments.Controls.Add(this.dataGridViewCustomers);
-            this.groupBoxAppointments.Enabled = false;
-            this.groupBoxAppointments.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxAppointments.Name = "groupBoxAppointments";
-            this.groupBoxAppointments.Size = new System.Drawing.Size(721, 458);
-            this.groupBoxAppointments.TabIndex = 3;
-            this.groupBoxAppointments.TabStop = false;
-            this.groupBoxAppointments.Text = "Appointments";
-            this.groupBoxAppointments.Visible = false;
+            this.guna2ButtonCustomers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2ButtonCustomers.BorderThickness = 1;
+            this.guna2ButtonCustomers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonCustomers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonCustomers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonCustomers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonCustomers.FillColor = System.Drawing.Color.White;
+            this.guna2ButtonCustomers.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonCustomers.ForeColor = System.Drawing.Color.Black;
+            this.guna2ButtonCustomers.Location = new System.Drawing.Point(283, 12);
+            this.guna2ButtonCustomers.Name = "guna2ButtonCustomers";
+            this.guna2ButtonCustomers.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonCustomers.TabIndex = 1;
+            this.guna2ButtonCustomers.Text = "Customers";
+            this.guna2ButtonCustomers.Click += new System.EventHandler(this.guna2ButtonCustomers_Click);
             // 
-            // dataGridViewCustomers
+            // guna2ButtonAppointments
             // 
-            this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCustomers.Location = new System.Drawing.Point(6, 27);
-            this.dataGridViewCustomers.Name = "dataGridViewCustomers";
-            this.dataGridViewCustomers.Size = new System.Drawing.Size(709, 366);
-            this.dataGridViewCustomers.TabIndex = 0;
+            this.guna2ButtonAppointments.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2ButtonAppointments.BorderThickness = 1;
+            this.guna2ButtonAppointments.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonAppointments.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonAppointments.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonAppointments.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonAppointments.FillColor = System.Drawing.Color.White;
+            this.guna2ButtonAppointments.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonAppointments.ForeColor = System.Drawing.Color.Black;
+            this.guna2ButtonAppointments.Location = new System.Drawing.Point(469, 12);
+            this.guna2ButtonAppointments.Name = "guna2ButtonAppointments";
+            this.guna2ButtonAppointments.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonAppointments.TabIndex = 2;
+            this.guna2ButtonAppointments.Text = "Appointments";
+            this.guna2ButtonAppointments.Click += new System.EventHandler(this.guna2ButtonAppointments_Click);
             // 
             // FormAppointmentMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 540);
-            this.Controls.Add(this.groupBoxCustomers);
-            this.Controls.Add(this.treeViewTabs);
-            this.Controls.Add(this.labelHelloUsr);
+            this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.panelTop);
             this.Name = "FormAppointmentMain";
             this.Text = "FormAppointmentMain";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAppointmentMain_FormClosed);
             this.Load += new System.EventHandler(this.FormAppointmentMain_Load);
-            this.groupBoxCustomers.ResumeLayout(false);
-            this.groupBoxAppointments.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label labelHelloUsr;
-        private System.Windows.Forms.TreeView treeViewTabs;
-        private System.Windows.Forms.GroupBox groupBoxCustomers;
-        private System.Windows.Forms.GroupBox groupBoxAppointments;
-        private System.Windows.Forms.DataGridView dataGridViewCustomers;
+        private System.Windows.Forms.Panel panelTop;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonCustomers;
+        private System.Windows.Forms.Panel panelContainer;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonAppointments;
     }
 }

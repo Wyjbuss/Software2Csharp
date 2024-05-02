@@ -41,3 +41,6 @@ C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Runtime.CompilerServic
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.csproj.CopyComplete
 C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormAppointmentMain.resources
+C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\Guna.UI2.dll
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.Appointments.resources
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.Customers.resources
