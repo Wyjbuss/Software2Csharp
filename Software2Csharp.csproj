@@ -109,6 +109,8 @@
     <Compile Include="Appointments.Designer.cs">
       <DependentUpon>Appointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassAppointments.cs" />
+    <Compile Include="ClassCustomers.cs" />
     <Compile Include="Customers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +129,7 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadMySqlData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Appointments.resx">

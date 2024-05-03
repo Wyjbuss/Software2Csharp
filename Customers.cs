@@ -15,6 +15,13 @@ namespace Software2Csharp
         public Customers()
         {
             InitializeComponent();
+            LoadMySqlData loadData = new LoadMySqlData();
+            loadData.LoadCustomerData(dataGridViewCustomers);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Software2Csharp
 {
-    internal class ClassAppointments
+    public class ClassAppointments
     {
         public enum appointmentType { }
         public string title;

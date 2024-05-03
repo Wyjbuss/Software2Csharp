@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Software2Csharp
 {
-    internal class ClassCustomers
+    public class ClassCustomers
     {
-        public string customerName;
+        public string name;
+        public string address;
+        public string phoneNumber;
         public bool active;
         public DateTime createdDate;
         public DateTime updatedDate;
@@ -16,7 +18,7 @@ namespace Software2Csharp
         public string updatedBy;
         public ClassCustomers() 
         {
-            customerName = "New Customer" + 1;
+            name = "NewCustomer" + 1;
             active = true;
             createdDate = DateTime.Now;
             updatedDate = DateTime.Now;
