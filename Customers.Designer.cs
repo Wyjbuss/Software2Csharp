@@ -95,6 +95,8 @@
             this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCustomers.Location = new System.Drawing.Point(242, 74);
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";
+            this.dataGridViewCustomers.ReadOnly = true;
+            this.dataGridViewCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCustomers.Size = new System.Drawing.Size(657, 384);
             this.dataGridViewCustomers.TabIndex = 4;
             this.dataGridViewCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
