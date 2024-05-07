@@ -23,7 +23,9 @@ namespace Software2Csharp
             if (noEmptyFields() && phoneNumberHasNoErrors())
             {
                 // process adding the user
+                Console.WriteLine("No errors in add customer form");
             }
+            else Console.Error.WriteLine("Feilds are incorect to create new customer");
         }
 
         private bool phoneNumberHasNoErrors()
@@ -42,6 +44,11 @@ namespace Software2Csharp
                 return true;
             }
             else return false;
+        }
+
+        private void guna2ButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

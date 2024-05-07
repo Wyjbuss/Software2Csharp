@@ -59,6 +59,7 @@
             this.guna2ButtonCreateNewCustomer.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonCreateNewCustomer.TabIndex = 1;
             this.guna2ButtonCreateNewCustomer.Text = "Create New Customer";
+            this.guna2ButtonCreateNewCustomer.Click += new System.EventHandler(this.guna2ButtonCreateNewCustomer_Click);
             // 
             // guna2Button1
             // 

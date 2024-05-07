@@ -240,6 +240,7 @@
             this.guna2ButtonCancel.Size = new System.Drawing.Size(94, 45);
             this.guna2ButtonCancel.TabIndex = 13;
             this.guna2ButtonCancel.Text = "Cancel";
+            this.guna2ButtonCancel.Click += new System.EventHandler(this.guna2ButtonCancel_Click);
             // 
             // FormAddNewCustomer
             // 

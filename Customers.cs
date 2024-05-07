@@ -23,5 +23,11 @@ namespace Software2Csharp
         {
 
         }
+
+        private void guna2ButtonCreateNewCustomer_Click(object sender, EventArgs e)
+        {
+            FormAddNewCustomer frm = new FormAddNewCustomer();
+            frm.Show();
+        }
     }
 }
