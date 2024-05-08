@@ -23,7 +23,9 @@ namespace Software2Csharp
             if (noEmptyFields() && phoneNumberHasNoErrors())
             {
                 // process adding the user
-                Console.WriteLine("No errors in add customer form");
+                ClassCustomers newCustomer = new ClassCustomers();
+                newCustomer.phoneNumber = "123-456-7890";
+                newCustomer.addCustomer(newCustomer);
             }
             else Console.Error.WriteLine("Feilds are incorect to create new customer");
         }
