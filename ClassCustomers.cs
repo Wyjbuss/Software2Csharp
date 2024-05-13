@@ -38,21 +38,24 @@ namespace Software2Csharp
             active = true;
             createdDate = DateTime.Now;
             updatedDate = DateTime.Now;
-            createdBy = "";
-            updatedBy = "";
+            createdBy = "ME";
+            updatedBy = "ME";
             phoneNumber = string.Empty;
             addressId = 1;
-            customerId = 4;
+            sql = "SELECT COUNT(*) FROM customer";
+            customerId = cmd.ExecuteNonQuery()+1;
             cnn.Close();
 
         }
 
         public void addCustomer(ClassCustomers newCustomer)
         {
+            createdDate = DateTime.Now;
+            updatedDate = DateTime.Now;
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cnn.Open();
-            //sql = $"INSERT INTO customer VALUES({newCustomer.customerId},{newCustomer.name},{newCustomer.addressId},{newCustomer.active},{newCustomer.createdDate.ToString("yyyy-MM-dd HH:mm:ss")},{newCustomer.createdBy},{newCustomer.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")},{newCustomer.updatedBy});";
-            sql = "insert into customer values(4, 'Jane Pain', 3, 1, 5 / 7 / 2024, 'Me', 5 / 7 / 2024, 'Me');";
+            sql = $"INSERT INTO customer VALUES({newCustomer.customerId},'{newCustomer.name}',{newCustomer.addressId},{newCustomer.active},{newCustomer.createdDate.ToString("MM / dd / yyyy ")},'{newCustomer.createdBy}',{newCustomer.updatedDate.ToString("MM / dd / yyyy ")},'{newCustomer.updatedBy}');";
+            //sql = "insert into customer values(4, 'Jane Pain', 3, 1, 5 / 7 / 2024, 'Me', 5 / 7 / 2024, 'Me');";
             cmd = new MySqlCommand(sql, cnn);
             cmd.ExecuteNonQuery();
             cnn.Close();
