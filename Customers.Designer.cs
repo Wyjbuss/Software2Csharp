@@ -30,7 +30,7 @@
         {
             this.labelCustomers = new System.Windows.Forms.Label();
             this.guna2ButtonCreateNewCustomer = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonDeleteCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonUpdateCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridViewCustomers = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).BeginInit();
@@ -61,20 +61,21 @@
             this.guna2ButtonCreateNewCustomer.Text = "Create New Customer";
             this.guna2ButtonCreateNewCustomer.Click += new System.EventHandler(this.guna2ButtonCreateNewCustomer_Click);
             // 
-            // guna2Button1
+            // guna2ButtonDeleteCustomer
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(11, 421);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Delete Customer";
+            this.guna2ButtonDeleteCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2ButtonDeleteCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonDeleteCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonDeleteCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonDeleteCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonDeleteCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonDeleteCustomer.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonDeleteCustomer.Location = new System.Drawing.Point(11, 421);
+            this.guna2ButtonDeleteCustomer.Name = "guna2ButtonDeleteCustomer";
+            this.guna2ButtonDeleteCustomer.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonDeleteCustomer.TabIndex = 2;
+            this.guna2ButtonDeleteCustomer.Text = "Delete Customer";
+            this.guna2ButtonDeleteCustomer.Click += new System.EventHandler(this.guna2ButtonDeleteCutomer_Click);
             // 
             // guna2ButtonUpdateCustomer
             // 
@@ -108,7 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridViewCustomers);
             this.Controls.Add(this.guna2ButtonUpdateCustomer);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.guna2ButtonDeleteCustomer);
             this.Controls.Add(this.guna2ButtonCreateNewCustomer);
             this.Controls.Add(this.labelCustomers);
             this.Name = "Customers";
@@ -123,7 +124,7 @@
 
         private System.Windows.Forms.Label labelCustomers;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonCreateNewCustomer;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonDeleteCustomer;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUpdateCustomer;
         private System.Windows.Forms.DataGridView dataGridViewCustomers;
     }

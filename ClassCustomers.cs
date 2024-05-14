@@ -62,7 +62,12 @@ namespace Software2Csharp
         }
         public void removeCustomer(int customerID)
         {
-
+            sql = $"DELETE FROM customer WHERE customerId={customerID.ToString()}";
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cnn.Open();
+            cmd = new MySqlCommand(sql, cnn);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
         }
         public void updateCustomer(int customerID)
         {

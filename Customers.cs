@@ -29,5 +29,10 @@ namespace Software2Csharp
             FormAddNewCustomer frm = new FormAddNewCustomer();
             frm.Show();
         }
+
+        private void guna2ButtonDeleteCutomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
