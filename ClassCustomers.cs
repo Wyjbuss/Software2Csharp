@@ -3,6 +3,7 @@ using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,10 +63,13 @@ namespace Software2Csharp
         }
         public void removeCustomer(int customerID)
         {
-            sql = $"DELETE FROM customer WHERE customerId={customerID.ToString()}";
+            sql = $"SET FOREIGN_KEY_CHECKS=0; DELETE FROM customer WHERE customerId={customerID};";
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cnn.Open();
             cmd = new MySqlCommand(sql, cnn);
+            cmd.ExecuteNonQuery();
+            //cmd.ExecuteScalar();
+            sql = "SET FOREIGN_KEY_CHECKS=1;";
             cmd.ExecuteNonQuery();
             cnn.Close();
         }

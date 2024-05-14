@@ -12,6 +12,7 @@ namespace Software2Csharp
 {
     public partial class Customers : UserControl
     {
+        private int currentSelectedRow;
         public Customers()
         {
             InitializeComponent();
@@ -32,7 +33,11 @@ namespace Software2Csharp
 
         private void guna2ButtonDeleteCutomer_Click(object sender, EventArgs e)
         {
-
+            currentSelectedRow = dataGridViewCustomers.CurrentRow.Index;
+            ClassCustomers classCustomers = new ClassCustomers();
+            classCustomers.removeCustomer(currentSelectedRow);
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadCustomerData(dataGridViewCustomers);
         }
     }
 }
