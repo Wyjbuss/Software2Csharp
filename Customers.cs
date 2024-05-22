@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,11 @@ namespace Software2Csharp
     public partial class Customers : UserControl
     {
         private int currentSelectedRow;
+
+        private FormAddNewCustomer frmm;
+
+        public MySqlConnection cnn;
+        public MySqlCommand cmd;
         public Customers()
         {
             InitializeComponent();
@@ -28,14 +34,37 @@ namespace Software2Csharp
         private void guna2ButtonCreateNewCustomer_Click(object sender, EventArgs e)
         {
             FormAddNewCustomer frm = new FormAddNewCustomer();
-            frm.Show();
+            frmm = frm;
+            frmm.Show();
+            frmm.onAppExit += Frm_onAppExit;
+        }
+
+        private void Frm_onAppExit(object sender, EventArgs e)
+        {
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadCustomerData(dataGridViewCustomers);
+            frmm.onAppExit -= Frm_onAppExit;
+
         }
 
         private void guna2ButtonDeleteCutomer_Click(object sender, EventArgs e)
         {
-            currentSelectedRow = dataGridViewCustomers.CurrentRow.Index;
+            
+            string customerId = dataGridViewCustomers.CurrentRow.Cells[0].Value.ToString();
+           
+            // find the selected rows customerId
             ClassCustomers classCustomers = new ClassCustomers();
-            classCustomers.removeCustomer(currentSelectedRow);
+            try
+            {
+                classCustomers.removeCustomer(int.Parse(customerId));
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Error: can't parse customerId to string");
+            }
+            
+
             LoadMySqlData loadMySqlData = new LoadMySqlData();
             loadMySqlData.LoadCustomerData(dataGridViewCustomers);
         }

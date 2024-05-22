@@ -263,6 +263,7 @@
             this.Controls.Add(this.guna2TextBoxName);
             this.Name = "FormAddNewCustomer";
             this.Text = "FormAddNewCustomer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddNewCustomer_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

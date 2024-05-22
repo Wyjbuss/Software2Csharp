@@ -12,6 +12,7 @@ namespace Software2Csharp
 {
     public partial class FormAddNewCustomer : Form
     {
+        public event EventHandler onAppExit;
         public FormAddNewCustomer()
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace Software2Csharp
                 ClassCustomers newCustomer = new ClassCustomers();
                 newCustomer.phoneNumber = "123-456-7890";
                 newCustomer.addCustomer(newCustomer);
+                
+                this.Close();
             }
             else Console.Error.WriteLine("Feilds are incorect to create new customer");
         }
@@ -51,6 +54,11 @@ namespace Software2Csharp
         private void guna2ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddNewCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            onAppExit.Invoke(this, e);
         }
     }
 }

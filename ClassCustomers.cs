@@ -67,6 +67,8 @@ namespace Software2Csharp
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cnn.Open();
             cmd = new MySqlCommand(sql, cnn);
+
+
             cmd.ExecuteNonQuery();
             //cmd.ExecuteScalar();
             sql = "SET FOREIGN_KEY_CHECKS=1;";

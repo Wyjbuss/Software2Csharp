@@ -15,7 +15,7 @@ namespace Software2Csharp
         public MySqlCommand cmd;
         public MySqlDataReader dr;
         public string sql = "SELECT * FROM user";
-        public string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;Convert Zero Datetime=True;";
+        public static string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;Convert Zero Datetime=True;";
 
         public LoadMySqlData()
         {

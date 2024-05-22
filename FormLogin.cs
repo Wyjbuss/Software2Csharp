@@ -26,7 +26,7 @@ namespace Software2Csharp
         string usrName;
         string usrPwd;
         string sql = "SELECT * FROM user";
-        string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
+        public static string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
         public FormLogin()
         {
             InitializeComponent();
