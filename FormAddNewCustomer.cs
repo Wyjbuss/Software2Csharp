@@ -58,7 +58,7 @@ namespace Software2Csharp
 
         private void FormAddNewCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            onAppExit.Invoke(this, e);
+
         }
     }
 }

@@ -94,6 +94,7 @@
             // 
             // dataGridViewCustomers
             // 
+            this.dataGridViewCustomers.AllowUserToAddRows = false;
             this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCustomers.Location = new System.Drawing.Point(242, 74);
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";

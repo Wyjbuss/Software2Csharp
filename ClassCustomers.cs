@@ -55,8 +55,15 @@ namespace Software2Csharp
             updatedDate = DateTime.Now;
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cnn.Open();
-            sql = $"INSERT INTO customer VALUES({newCustomer.customerId},'{newCustomer.name}',{newCustomer.addressId},{newCustomer.active},'{newCustomer.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}','{newCustomer.createdBy}','{newCustomer.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")}','{newCustomer.updatedBy}');";
-            //sql = "insert into customer values(4, 'Jane Pain', 3, 1, 5 / 7 / 2024, 'Me', 5 / 7 / 2024, 'Me');";
+            sql = $"INSERT INTO customer VALUES({newCustomer.customerId}," +
+                $"'{newCustomer.name}'," +
+                $"{newCustomer.addressId}," +
+                $"{newCustomer.active}," +
+                $"'{newCustomer.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{newCustomer.createdBy}'," +
+                $"'{newCustomer.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{newCustomer.updatedBy}');";
+            
             cmd = new MySqlCommand(sql, cnn);
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -75,8 +82,23 @@ namespace Software2Csharp
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-        public void updateCustomer(int customerID)
+        public void updateCustomer(ClassCustomers newCustomerInfo, int selectedCustomersIDToReplace)
         {
+            updatedDate = DateTime.Now;
+            sql = $"UPDATE customer " +
+                $"SET customerId={newCustomerInfo.customerId}, " +
+                $"customerName='{newCustomerInfo.name}'," +
+                $"addressId=3, " +
+                $"active={newCustomerInfo.active}," +
+                $"lastUpdated='{newCustomerInfo.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"lastUpdatedBy='{newCustomerInfo.updatedBy+1}'" +
+                $"WHERE customerId={selectedCustomersIDToReplace}";
+
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cnn.Open();
+            cmd = new MySqlCommand(sql, cnn);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
 
         }
     }
