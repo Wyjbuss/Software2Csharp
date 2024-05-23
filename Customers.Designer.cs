@@ -91,6 +91,7 @@
             this.guna2ButtonUpdateCustomer.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonUpdateCustomer.TabIndex = 3;
             this.guna2ButtonUpdateCustomer.Text = "Update Customer";
+            this.guna2ButtonUpdateCustomer.Click += new System.EventHandler(this.guna2ButtonUpdateCustomer_Click);
             // 
             // dataGridViewCustomers
             // 

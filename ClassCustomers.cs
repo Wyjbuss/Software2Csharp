@@ -19,7 +19,7 @@ namespace Software2Csharp
         public string sql = "SELECT * FROM customer";
         public string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
 
-        private int customerId;
+        public int customerId;
         public string name;
         public string address;
         public int addressId;
@@ -29,6 +29,10 @@ namespace Software2Csharp
         public DateTime updatedDate;
         public string createdBy;
         public string updatedBy;
+
+        public string postalCode;
+        public string city;
+        public string country;
         public ClassCustomers() 
         {
             cnn = new MySqlConnection(myConnectionDatabaseString);
@@ -86,12 +90,12 @@ namespace Software2Csharp
         {
             updatedDate = DateTime.Now;
             sql = $"UPDATE customer " +
-                $"SET customerId={newCustomerInfo.customerId}, " +
+                $"SET " +
                 $"customerName='{newCustomerInfo.name}'," +
                 $"addressId=3, " +
                 $"active={newCustomerInfo.active}," +
-                $"lastUpdated='{newCustomerInfo.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"lastUpdatedBy='{newCustomerInfo.updatedBy+1}'" +
+                $"lastUpdate='{newCustomerInfo.updatedDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"lastUpdateBy='{newCustomerInfo.updatedBy+1}'" +
                 $"WHERE customerId={selectedCustomersIDToReplace}";
 
             cnn = new MySqlConnection(myConnectionDatabaseString);

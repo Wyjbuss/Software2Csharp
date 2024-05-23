@@ -55,3 +55,4 @@ C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\MySql.Data.EntityFramework.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\MySqlConnector.xml
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormUpdateCustomer.resources

@@ -25,6 +25,8 @@ namespace Software2Csharp
             {
                 // process adding the user
                 ClassCustomers newCustomer = new ClassCustomers();
+
+                // add the feilds the user typed in use .ToString().Trim(); to get the trimmed down text (no white space)
                 newCustomer.phoneNumber = "123-456-7890";
                 newCustomer.addCustomer(newCustomer);
                 
@@ -58,7 +60,7 @@ namespace Software2Csharp
 
         private void FormAddNewCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            onAppExit.Invoke(this, new EventArgs());
         }
     }
 }

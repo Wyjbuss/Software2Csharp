@@ -16,6 +16,7 @@ namespace Software2Csharp
         private int currentSelectedRow;
 
         private FormAddNewCustomer frmm;
+        private FormUpdateCustomer UpdateCustomerForm;
 
         public MySqlConnection cnn;
         public MySqlCommand cmd;
@@ -67,6 +68,47 @@ namespace Software2Csharp
 
             LoadMySqlData loadMySqlData = new LoadMySqlData();
             loadMySqlData.LoadCustomerData(dataGridViewCustomers);
+        }
+
+        private void guna2ButtonUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            //gets the values of the selected customer's values
+            string customerId = dataGridViewCustomers.CurrentRow.Cells[0].Value.ToString();
+            string customerName = dataGridViewCustomers.CurrentRow.Cells[1].Value.ToString();
+            string addressId = dataGridViewCustomers.CurrentRow.Cells[2].Value.ToString();
+            string active = dataGridViewCustomers.CurrentRow.Cells[3].Value.ToString();
+            string createDate = dataGridViewCustomers.CurrentRow.Cells[4].Value.ToString();
+            string createBy = dataGridViewCustomers.CurrentRow.Cells[5].Value.ToString();
+            string lastUpdated = dataGridViewCustomers.CurrentRow.Cells[6].Value.ToString();
+            string lastUpdatedBy = dataGridViewCustomers.CurrentRow.Cells[7].Value.ToString();
+
+            ClassCustomers currentCustomer = new ClassCustomers();
+            currentCustomer.customerId = int.Parse(customerId);
+            currentCustomer.name = customerName;
+            currentCustomer.addressId = int.Parse(addressId);
+            currentCustomer.active = bool.Parse(active);
+            currentCustomer.updatedDate = DateTime.Parse(lastUpdated);
+            currentCustomer.updatedBy = lastUpdatedBy;
+
+
+
+            UpdateCustomerForm = new FormUpdateCustomer();
+            UpdateCustomerForm.Show();
+            UpdateCustomerForm.LoadCurrentSelectedCustomer(currentCustomer);
+
+            //refresh the table
+            UpdateCustomerForm.OnFormExit += UpdateCustomerForm_OnFormExit;
+            UpdateCustomerForm.LoadCurrentSelectedCustomer(currentCustomer);
+
+            
+
+        }
+
+        private void UpdateCustomerForm_OnFormExit(object sender, EventArgs e)
+        {
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadCustomerData(dataGridViewCustomers);
+            UpdateCustomerForm.OnFormExit -= UpdateCustomerForm_OnFormExit;
         }
     }
 }
