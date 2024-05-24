@@ -44,6 +44,8 @@
             this.guna2TextBoxTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelEnd = new System.Windows.Forms.Label();
             this.labelStart = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // guna2ButtonCancel
@@ -54,7 +56,7 @@
             this.guna2ButtonCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonCancel.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonCancel.Location = new System.Drawing.Point(416, 369);
+            this.guna2ButtonCancel.Location = new System.Drawing.Point(602, 363);
             this.guna2ButtonCancel.Name = "guna2ButtonCancel";
             this.guna2ButtonCancel.Size = new System.Drawing.Size(94, 45);
             this.guna2ButtonCancel.TabIndex = 27;
@@ -68,7 +70,7 @@
             this.guna2ButtonAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2ButtonAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonAdd.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonAdd.Location = new System.Drawing.Point(310, 369);
+            this.guna2ButtonAdd.Location = new System.Drawing.Point(496, 363);
             this.guna2ButtonAdd.Name = "guna2ButtonAdd";
             this.guna2ButtonAdd.Size = new System.Drawing.Size(94, 45);
             this.guna2ButtonAdd.TabIndex = 26;
@@ -77,7 +79,7 @@
             // labelURL
             // 
             this.labelURL.AutoSize = true;
-            this.labelURL.Location = new System.Drawing.Point(266, 340);
+            this.labelURL.Location = new System.Drawing.Point(452, 334);
             this.labelURL.Name = "labelURL";
             this.labelURL.Size = new System.Drawing.Size(32, 13);
             this.labelURL.TabIndex = 25;
@@ -94,10 +96,10 @@
             this.guna2TextBoxURL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxURL.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxURL.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxURL.Location = new System.Drawing.Point(310, 327);
+            this.guna2TextBoxURL.Location = new System.Drawing.Point(496, 321);
             this.guna2TextBoxURL.Name = "guna2TextBoxURL";
             this.guna2TextBoxURL.PasswordChar = '\0';
-            this.guna2TextBoxURL.PlaceholderText = "United States";
+            this.guna2TextBoxURL.PlaceholderText = "https://google.com";
             this.guna2TextBoxURL.SelectedText = "";
             this.guna2TextBoxURL.Size = new System.Drawing.Size(200, 36);
             this.guna2TextBoxURL.TabIndex = 24;
@@ -105,7 +107,7 @@
             // labelType
             // 
             this.labelType.AutoSize = true;
-            this.labelType.Location = new System.Drawing.Point(270, 295);
+            this.labelType.Location = new System.Drawing.Point(456, 289);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(34, 13);
             this.labelType.TabIndex = 23;
@@ -122,10 +124,10 @@
             this.guna2TextBoxType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxType.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxType.Location = new System.Drawing.Point(310, 285);
+            this.guna2TextBoxType.Location = new System.Drawing.Point(496, 279);
             this.guna2TextBoxType.Name = "guna2TextBoxType";
             this.guna2TextBoxType.PasswordChar = '\0';
-            this.guna2TextBoxType.PlaceholderText = "Baxton";
+            this.guna2TextBoxType.PlaceholderText = "Scrum";
             this.guna2TextBoxType.SelectedText = "";
             this.guna2TextBoxType.Size = new System.Drawing.Size(90, 36);
             this.guna2TextBoxType.TabIndex = 22;
@@ -133,7 +135,7 @@
             // labelContact
             // 
             this.labelContact.AutoSize = true;
-            this.labelContact.Location = new System.Drawing.Point(257, 255);
+            this.labelContact.Location = new System.Drawing.Point(443, 249);
             this.labelContact.Name = "labelContact";
             this.labelContact.Size = new System.Drawing.Size(47, 13);
             this.labelContact.TabIndex = 21;
@@ -150,10 +152,10 @@
             this.guna2TextBoxContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxContact.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxContact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxContact.Location = new System.Drawing.Point(310, 243);
+            this.guna2TextBoxContact.Location = new System.Drawing.Point(496, 237);
             this.guna2TextBoxContact.Name = "guna2TextBoxContact";
             this.guna2TextBoxContact.PasswordChar = '\0';
-            this.guna2TextBoxContact.PlaceholderText = "66553";
+            this.guna2TextBoxContact.PlaceholderText = "Fred";
             this.guna2TextBoxContact.SelectedText = "";
             this.guna2TextBoxContact.Size = new System.Drawing.Size(90, 36);
             this.guna2TextBoxContact.TabIndex = 20;
@@ -161,7 +163,7 @@
             // labelLocation
             // 
             this.labelLocation.AutoSize = true;
-            this.labelLocation.Location = new System.Drawing.Point(256, 211);
+            this.labelLocation.Location = new System.Drawing.Point(442, 205);
             this.labelLocation.Name = "labelLocation";
             this.labelLocation.Size = new System.Drawing.Size(51, 13);
             this.labelLocation.TabIndex = 19;
@@ -170,7 +172,7 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(244, 139);
+            this.labelDescription.Location = new System.Drawing.Point(430, 133);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(63, 13);
             this.labelDescription.TabIndex = 18;
@@ -179,7 +181,7 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(266, 69);
+            this.labelTitle.Location = new System.Drawing.Point(452, 63);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(30, 13);
             this.labelTitle.TabIndex = 17;
@@ -196,7 +198,7 @@
             this.guna2TextBoxLocation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxLocation.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxLocation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxLocation.Location = new System.Drawing.Point(310, 201);
+            this.guna2TextBoxLocation.Location = new System.Drawing.Point(496, 195);
             this.guna2TextBoxLocation.Name = "guna2TextBoxLocation";
             this.guna2TextBoxLocation.PasswordChar = '\0';
             this.guna2TextBoxLocation.PlaceholderText = "1243 Main St.";
@@ -215,7 +217,7 @@
             this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Location = new System.Drawing.Point(310, 101);
+            this.guna2TextBoxDescription.Location = new System.Drawing.Point(496, 95);
             this.guna2TextBoxDescription.Multiline = true;
             this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
             this.guna2TextBoxDescription.PasswordChar = '\0';
@@ -235,7 +237,7 @@
             this.guna2TextBoxTitle.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxTitle.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxTitle.Location = new System.Drawing.Point(310, 59);
+            this.guna2TextBoxTitle.Location = new System.Drawing.Point(496, 53);
             this.guna2TextBoxTitle.Name = "guna2TextBoxTitle";
             this.guna2TextBoxTitle.PasswordChar = '\0';
             this.guna2TextBoxTitle.PlaceholderText = "Meeting";
@@ -246,7 +248,7 @@
             // labelEnd
             // 
             this.labelEnd.AutoSize = true;
-            this.labelEnd.Location = new System.Drawing.Point(42, 82);
+            this.labelEnd.Location = new System.Drawing.Point(31, 169);
             this.labelEnd.Name = "labelEnd";
             this.labelEnd.Size = new System.Drawing.Size(29, 13);
             this.labelEnd.TabIndex = 28;
@@ -255,17 +257,33 @@
             // labelStart
             // 
             this.labelStart.AutoSize = true;
-            this.labelStart.Location = new System.Drawing.Point(42, 29);
+            this.labelStart.Location = new System.Drawing.Point(31, 116);
             this.labelStart.Name = "labelStart";
             this.labelStart.Size = new System.Drawing.Size(32, 13);
             this.labelStart.TabIndex = 29;
             this.labelStart.Text = "Start:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(69, 116);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(186, 20);
+            this.dateTimePicker1.TabIndex = 30;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(66, 169);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(189, 20);
+            this.dateTimePicker2.TabIndex = 31;
             // 
             // FormAddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelStart);
             this.Controls.Add(this.labelEnd);
             this.Controls.Add(this.guna2ButtonCancel);
@@ -307,5 +325,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxTitle;
         private System.Windows.Forms.Label labelEnd;
         private System.Windows.Forms.Label labelStart;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
