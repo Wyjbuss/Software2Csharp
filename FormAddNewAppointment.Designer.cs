@@ -75,6 +75,7 @@
             this.guna2ButtonAdd.Size = new System.Drawing.Size(94, 45);
             this.guna2ButtonAdd.TabIndex = 26;
             this.guna2ButtonAdd.Text = "Add";
+            this.guna2ButtonAdd.Click += new System.EventHandler(this.guna2ButtonAdd_Click);
             // 
             // labelURL
             // 

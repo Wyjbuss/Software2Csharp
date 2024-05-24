@@ -33,17 +33,17 @@ namespace Software2Csharp
             title = "newAppointmentTitle" + 1;
         }
 
-        public static void addAppointment(ClassAppointments appointment)
+        public void addAppointment(ClassAppointments appointment)
         {
             // create database entry and add the data in this appointment 
         }
 
-        public static void removeAppointment(int AppointmentID) 
+        public void removeAppointment(int AppointmentID) 
         {
 
         }
 
-        public static void updateAppointment(int AppointmentID) 
+        public void updateAppointment(int AppointmentID) 
         {
             // get the current appointment by ID and update the data
         }
