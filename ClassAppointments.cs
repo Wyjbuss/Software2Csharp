@@ -8,17 +8,22 @@ namespace Software2Csharp
 {
     public class ClassAppointments
     {
-        public enum appointmentType { }
+        public int appointmentId;
+        public int customerId;
+        public int userId;
         public string title;
         public string description;
         public string location;
-        public DateTime startTime;
-        public DateTime endTime;
-        public DateTime lastUpdated;
-        public string lastUpdaedBy;
+        public string contact;
+        public string type;
+        public string url;
+        public DateTime start;
+        public DateTime end;
         public DateTime createdDate;
         public string createdBy;
-        public string url;
+        public DateTime lastUpdate;
+        public string lastUpdateBy;
+       
 
         // link to customer
 

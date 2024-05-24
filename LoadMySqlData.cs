@@ -55,6 +55,11 @@ namespace Software2Csharp
             
         }
 
+        public void LoadAppointmentDataIntoCalendar(MonthCalendar calendar)
+        {
+            sql = "SELECT * FROM appointment";
+            cmd = new MySqlCommand(sql, cnn);
+        }
 
     }
 }

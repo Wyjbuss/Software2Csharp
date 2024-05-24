@@ -15,6 +15,17 @@ namespace Software2Csharp
         public Appointments()
         {
             InitializeComponent();
+            //load the appointments into the monthCalendar
+        }
+
+        private void guna2ButtonCreateNewAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthCalendarAppointments_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            Console.WriteLine(monthCalendarAppointments.SelectionRange.Start.ToString());
         }
     }
 }
