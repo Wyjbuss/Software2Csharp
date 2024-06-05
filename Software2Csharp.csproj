@@ -312,11 +312,11 @@
     <Compile Include="Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormAddNewAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAddNewAppointment.Designer.cs">
+      <DependentUpon>FormAddNewAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddNewCustomer.cs">
       <SubType>Form</SubType>
@@ -351,8 +351,8 @@
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddNewAppointment.resx">
+      <DependentUpon>FormAddNewAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddNewCustomer.resx">
       <DependentUpon>FormAddNewCustomer.cs</DependentUpon>

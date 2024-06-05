@@ -12,6 +12,7 @@ namespace Software2Csharp
 {
     public partial class Appointments : UserControl
     {
+        public FormAddAppointment newAppointmentForm;
         public Appointments()
         {
             InitializeComponent();
@@ -20,7 +21,8 @@ namespace Software2Csharp
 
         private void guna2ButtonCreateNewAppointment_Click(object sender, EventArgs e)
         {
-
+            newAppointmentForm = new FormAddAppointment();
+            newAppointmentForm.Show();
         }
 
         private void monthCalendarAppointments_DateSelected(object sender, DateRangeEventArgs e)

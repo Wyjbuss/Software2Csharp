@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStack.Text;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,7 @@ namespace Software2Csharp
                 ClassAppointments newAppointment = new ClassAppointments();
 
                 //capture the inputs and add them to the newAppointment
+                AddInputsToAppointment(newAppointment);
 
                 // add the appointment to the database
                 newAppointment.addAppointment(newAppointment);
@@ -34,9 +36,29 @@ namespace Software2Csharp
 
         }
 
+        private void AddInputsToAppointment(ClassAppointments newAppointment)
+        {
+            //capture the inputs and add them to the newAppointment
+            guna2TextBoxTitle.Text = newAppointment.title;
+            guna2TextBoxDescription.Text = newAppointment.description;
+            guna2TextBoxLocation.Text = newAppointment.location;
+            guna2TextBoxContact.Text = newAppointment.contact;
+            guna2TextBoxURL.Text = newAppointment.url;
+            //dateTimePickerStart.Value = newAppointment.start;
+            //dateTimePickerEnd.Value = newAppointment.end;
+
+            
+        }
+
         private bool AllAreaaNoErrors()
         {
-            throw new NotImplementedException();
+            return true;
+            throw new NotImplementedException("Have not implimented input checking on adding appointment form");
+        }
+
+        private void guna2ButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

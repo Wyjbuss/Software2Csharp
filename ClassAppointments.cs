@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,13 @@ namespace Software2Csharp
 {
     public class ClassAppointments
     {
+        public MySqlConnection cnn;
+        public MySqlCommand cmd;
+        public MySqlDataReader dr;
+        public string sql;
+        public string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
+
+
         public int appointmentId;
         public int customerId;
         public int userId;
@@ -30,12 +38,64 @@ namespace Software2Csharp
         //get current appointments and prevent from setting one that overlaps
         public ClassAppointments() 
         {
+            sql = "SELECT COUNT(*) FROM appointment";
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cmd = new MySqlCommand(sql, cnn);
+            cnn.Open();
+
             title = "newAppointmentTitle" + 1;
+            
+            appointmentId = cmd.ExecuteNonQuery() + 1;
+            customerId = 0; userId = 0;
+            url = "None";
+            createdBy = "test";
+            lastUpdateBy = "test";
+            type = "None";
+            contact = "None";
+            location = "None";
+            description ="None";
+
+            start = DateTime.Now;
+            end = DateTime.Now;
+
+            cnn.Close();
+             
         }
 
         public void addAppointment(ClassAppointments appointment)
         {
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cmd = new MySqlCommand(sql, cnn);
+            cnn.Open();
+            sql = $"SET FOREIGN_KEY_CHECKS=0;";
+            cmd.ExecuteNonQuery();
+            createdDate = DateTime.Now;
+            lastUpdate = DateTime.Now;
             // create database entry and add the data in this appointment 
+
+            sql = $"INSERT INTO appointment VALUES({appointment.appointmentId}," +
+                $"'{appointment.customerId}'," +
+                $"{appointment.userId}," +
+                $"'{appointment.title}'," +
+                $"'{appointment.description}'," +
+                $"'{appointment.location}'," +
+                $"'{appointment.contact}'," +
+                $"'{appointment.type}'," +
+                $"'{appointment.url}'," +
+                $"'{appointment.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{appointment.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{appointment.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{appointment.createdBy}'," +
+                $"'{appointment.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"'{appointment.lastUpdateBy}');";
+
+          
+            cmd.ExecuteNonQuery();
+
+            sql = "SET FOREIGN_KEY_CHECKS=1;";
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+
         }
 
         public void removeAppointment(int AppointmentID) 

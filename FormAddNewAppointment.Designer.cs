@@ -44,8 +44,8 @@
             this.guna2TextBoxTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelEnd = new System.Windows.Forms.Label();
             this.labelStart = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // guna2ButtonCancel
@@ -61,6 +61,7 @@
             this.guna2ButtonCancel.Size = new System.Drawing.Size(94, 45);
             this.guna2ButtonCancel.TabIndex = 27;
             this.guna2ButtonCancel.Text = "Cancel";
+            this.guna2ButtonCancel.Click += new System.EventHandler(this.guna2ButtonCancel_Click);
             // 
             // guna2ButtonAdd
             // 
@@ -264,27 +265,27 @@
             this.labelStart.TabIndex = 29;
             this.labelStart.Text = "Start:";
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(69, 116);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(186, 20);
-            this.dateTimePicker1.TabIndex = 30;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(69, 116);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(186, 20);
+            this.dateTimePickerStart.TabIndex = 30;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(66, 169);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(189, 20);
-            this.dateTimePicker2.TabIndex = 31;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(66, 169);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(189, 20);
+            this.dateTimePickerEnd.TabIndex = 31;
             // 
             // FormAddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerEnd);
+            this.Controls.Add(this.dateTimePickerStart);
             this.Controls.Add(this.labelStart);
             this.Controls.Add(this.labelEnd);
             this.Controls.Add(this.guna2ButtonCancel);
@@ -326,7 +327,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxTitle;
         private System.Windows.Forms.Label labelEnd;
         private System.Windows.Forms.Label labelStart;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
     }
 }
