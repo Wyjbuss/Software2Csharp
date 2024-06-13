@@ -30,7 +30,7 @@ namespace Software2Csharp
                 AddInputsToAppointment(newAppointment);
 
                 // add the appointment to the database
-                newAppointment.addAppointment(newAppointment);
+                newAppointment.addAppointment();
 
             }
 

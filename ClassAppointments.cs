@@ -12,7 +12,7 @@ namespace Software2Csharp
         public MySqlConnection cnn;
         public MySqlCommand cmd;
         public MySqlDataReader dr;
-        public string sql;
+        public string sql = "SELECT COUNT(*) FROM appointment";
         public string myConnectionDatabaseString = "server=localhost;database=client_schedule;uid=root;pwd=Passw0rd!;";
 
 
@@ -38,14 +38,15 @@ namespace Software2Csharp
         //get current appointments and prevent from setting one that overlaps
         public ClassAppointments() 
         {
-            sql = "SELECT COUNT(*) FROM appointment";
             cnn = new MySqlConnection(myConnectionDatabaseString);
-            cmd = new MySqlCommand(sql, cnn);
             cnn.Open();
 
-            title = "newAppointmentTitle" + 1;
-            
+            sql = "SELECT COUNT(*) FROM appointment";
+            cmd = new MySqlCommand(sql, cnn);
+
             appointmentId = cmd.ExecuteNonQuery() + 1;
+            title = $"newAppointmentTitle {appointmentId.ToString()}";
+            
             customerId = 0; userId = 0;
             url = "None";
             createdBy = "test";
@@ -62,19 +63,23 @@ namespace Software2Csharp
              
         }
 
-        public void addAppointment(ClassAppointments appointment)
+        public void addAppointment()
         {
+            ClassAppointments appointment = this;
             cnn = new MySqlConnection(myConnectionDatabaseString);
+            sql = $"SET FOREIGN_KEY_CHECKS=0;";
+            
             cmd = new MySqlCommand(sql, cnn);
             cnn.Open();
-            sql = $"SET FOREIGN_KEY_CHECKS=0;";
             cmd.ExecuteNonQuery();
+
             createdDate = DateTime.Now;
             lastUpdate = DateTime.Now;
+            
             // create database entry and add the data in this appointment 
 
             sql = $"INSERT INTO appointment VALUES({appointment.appointmentId}," +
-                $"'{appointment.customerId}'," +
+                $"{appointment.customerId}," +
                 $"{appointment.userId}," +
                 $"'{appointment.title}'," +
                 $"'{appointment.description}'," +
@@ -89,10 +94,11 @@ namespace Software2Csharp
                 $"'{appointment.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
                 $"'{appointment.lastUpdateBy}');";
 
-          
+            cmd = new MySqlCommand(sql, cnn);
             cmd.ExecuteNonQuery();
 
             sql = "SET FOREIGN_KEY_CHECKS=1;";
+            cmd = new MySqlCommand(sql, cnn);
             cmd.ExecuteNonQuery();
             cnn.Close();
 
