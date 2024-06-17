@@ -109,9 +109,44 @@ namespace Software2Csharp
 
         }
 
-        public void updateAppointment(int AppointmentID) 
+        public void updateAppointment(int AppointmentID, ClassAppointments updatedInfo) 
         {
             // get the current appointment by ID and update the data
+
+            // the datetime that this was last updated by
+            updatedInfo.lastUpdate = DateTime.Now;
+
+            // the eql command that will update the datebase
+            sql = $"UPDATE appointment " +
+                $"SET " +
+                $"customerId={updatedInfo.customerId}," +
+                $"userId={updatedInfo.userId}, " +
+                $"title='{updatedInfo.title}'," +
+                $"description='{updatedInfo.description}'," +
+                $"location='{updatedInfo.location}'," +
+                $"contact='{updatedInfo.contact}'," +
+                $"type='{updatedInfo.type}'," +
+                $"url='{updatedInfo.url}'," +
+                $"start='{updatedInfo.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"end='{updatedInfo.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"lastUpdate='{updatedInfo.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"lastUpdateBy='{updatedInfo.lastUpdateBy}'" +
+                $"WHERE customerId={appointmentId}";
+
+
+            // create the connection and assign the sql to the command
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cmd = new MySqlCommand(sql, cnn);
+
+            // open the connection
+            cnn.Open();
+
+            //run the command 
+            cmd.ExecuteNonQuery();
+
+            // close the connection
+            cnn.Close();
+
         }
     }
 
