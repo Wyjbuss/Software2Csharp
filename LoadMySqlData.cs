@@ -73,7 +73,7 @@ namespace Software2Csharp
         }
         public void LoadAppointmentDataIntoGridView(DataGridView gridView, DateTime startDate)
         {
-            sql = $"select * from appointment WHERE DATE(start) = DATE('{startDate}');";
+            sql = $"select * from appointment WHERE DATE(start) = DATE('{startDate.Year}-{startDate.Month}-{startDate.Day}');";
             cmd = new MySqlCommand(sql, cnn);
 
 
