@@ -71,6 +71,21 @@ namespace Software2Csharp
             gridView.DataSource = bindingSource;
 
         }
+        public void LoadAppointmentDataIntoGridView(DataGridView gridView, DateTime startDate)
+        {
+            sql = $"select * from appointment WHERE DATE(start) = DATE('{startDate}');";
+            cmd = new MySqlCommand(sql, cnn);
+
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dt;
+            gridView.DataSource = bindingSource;
+
+        }
 
     }
 }
