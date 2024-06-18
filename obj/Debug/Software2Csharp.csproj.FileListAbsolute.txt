@@ -160,3 +160,4 @@ C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.Text.Json.xml
 C:\Users\LabUser\Desktop\Software2Csharp\bin\Debug\System.ValueTuple.xml
 C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormAddAppointment.resources
+C:\Users\LabUser\Desktop\Software2Csharp\obj\Debug\Software2Csharp.FormUpdateAppointment.resources

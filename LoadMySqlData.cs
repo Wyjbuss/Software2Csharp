@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Jenga.Theme;
 
 namespace Software2Csharp
 {
@@ -55,10 +56,20 @@ namespace Software2Csharp
             
         }
 
-        public void LoadAppointmentDataIntoCalendar(MonthCalendar calendar)
+        public void LoadAppointmentDataIntoGridView(DataGridView gridView)
         {
             sql = "SELECT * FROM appointment";
             cmd = new MySqlCommand(sql, cnn);
+
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dt;
+            gridView.DataSource = bindingSource;
+
         }
 
     }

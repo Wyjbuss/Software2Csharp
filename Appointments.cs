@@ -27,7 +27,22 @@ namespace Software2Csharp
 
         private void monthCalendarAppointments_DateSelected(object sender, DateRangeEventArgs e)
         {
-            Console.WriteLine(monthCalendarAppointments.SelectionRange.Start.ToString());
+            DateTime startDate = monthCalendarAppointments.SelectionRange.Start;
+            Console.WriteLine(startDate);
+
+            // load that data that is on that date
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments);
+        }
+
+        private void monthCalendarAppointments_DateChanged(object sender, DateRangeEventArgs e)
+        {
+        //    DateTime startDate = monthCalendarAppointments.SelectionRange.Start;
+        //    Console.WriteLine(startDate);
+
+        //    // load that data that is on that date
+        //    LoadMySqlData loadMySqlData = new LoadMySqlData();
+        //    loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments);
         }
     }
 }
