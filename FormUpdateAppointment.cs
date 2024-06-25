@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Bcpg.OpenPgp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,17 @@ namespace Software2Csharp
         public FormUpdateAppointment()
         {
             InitializeComponent();
+        }
+        public FormUpdateAppointment(string appointmentId, string customerId, string userId, string title, string description, string location, string contact, string type, string url, string start, string end, string createDate, string createBy, string lastUpdate, string lastUpdateBy)
+        {
+            InitializeComponent();
+            guna2TextBoxTitle.Text = title;
+            guna2TextBoxDescription.Text = description;
+            guna2TextBoxLocation.Text = location;
+            guna2TextBoxContact.Text = contact;
+            guna2TextBoxType.Text = type;
+            guna2TextBoxURL.Text = url;
+            
         }
 
         private void guna2ButtonCancel_Click(object sender, EventArgs e)

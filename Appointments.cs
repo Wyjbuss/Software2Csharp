@@ -13,6 +13,7 @@ namespace Software2Csharp
     public partial class Appointments : UserControl
     {
         public FormAddAppointment newAppointmentForm;
+        public FormUpdateAppointment newUpdateAppointment;
         public Appointments()
         {
             InitializeComponent();
@@ -44,6 +45,35 @@ namespace Software2Csharp
         //    // load that data that is on that date
         //    LoadMySqlData loadMySqlData = new LoadMySqlData();
         //    loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments);
+        }
+
+        private void guna2ButtonUpdateAppointment_Click(object sender, EventArgs e)
+        {
+            var obj = guna2DataGridViewAppointments.SelectedRows[0];
+            string appointmentId = obj.Cells[0].Value.ToString();
+            string customerId = obj.Cells[1].Value.ToString();
+            string userId = obj.Cells[2].Value.ToString();
+            string title = obj.Cells[3].Value.ToString();
+            string description = obj.Cells[4].Value.ToString();
+            string location = obj.Cells[5].Value.ToString();
+            string contact = obj.Cells[6].Value.ToString();
+            string type = obj.Cells[7].Value.ToString();
+            string URL = obj.Cells[8].Value.ToString();
+            string start = obj.Cells[9].Value.ToString();
+            string end = obj.Cells[10].Value.ToString();
+            string createDate = obj.Cells[11].Value.ToString();
+            string createBy = obj.Cells[12].Value.ToString();
+            string lastUpdate = obj.Cells[13].Value.ToString();
+            string lastUpdateBy = obj.Cells[14].Value.ToString();
+
+
+            newUpdateAppointment = new FormUpdateAppointment(appointmentId,customerId,userId,title,description,location,contact,type,URL,start,end,createDate,createBy,lastUpdate,lastUpdateBy);
+            
+            // set the feilds to = the values from this
+
+
+            newUpdateAppointment.Show();
+
         }
     }
 }
