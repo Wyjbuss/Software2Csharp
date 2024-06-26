@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,9 @@ namespace Software2Csharp
     {
         public FormAddAppointment newAppointmentForm;
         public FormUpdateAppointment newUpdateAppointment;
+
+        // the date the the user selects on the calendar
+        public DateTime startDate;
         public Appointments()
         {
             InitializeComponent();
@@ -29,7 +33,7 @@ namespace Software2Csharp
         private void monthCalendarAppointments_DateSelected(object sender, DateRangeEventArgs e)
         {
             // get the date
-            DateTime startDate = monthCalendarAppointments.SelectionRange.Start.Date;
+            startDate = monthCalendarAppointments.SelectionRange.Start.Date;
             Console.WriteLine($"{startDate.Month}-{startDate.Day}-{startDate.Year}");
 
             // load that data that is on that date
@@ -75,6 +79,7 @@ namespace Software2Csharp
 
 
                 newUpdateAppointment.Show();
+                newUpdateAppointment.Event_UpdateAppointmentFormClose += UpdateApplicationData;
             }
             catch (Exception)
             {
@@ -84,6 +89,17 @@ namespace Software2Csharp
 
           
 
+        }
+
+        private void UpdateApplicationData(object sender, EventArgs e)
+        {
+            //refesh data
+            // load that data that is on that date
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments, startDate);
+
+            // un subscribe
+            newUpdateAppointment.Event_UpdateAppointmentFormClose -= UpdateApplicationData;
         }
     }
 }

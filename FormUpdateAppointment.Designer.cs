@@ -304,6 +304,7 @@
             this.Controls.Add(this.guna2TextBoxTitle);
             this.Name = "FormUpdateAppointment";
             this.Text = "FormUpdateAppointment";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormUpdateAppointment_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,6 +15,8 @@ namespace Software2Csharp
     {
         ClassAppointments newAppointment;
 
+        public event EventHandler Event_UpdateAppointmentFormClose;
+
         string appointmentId;
         string customerId;
         string userId;
@@ -97,6 +99,7 @@ namespace Software2Csharp
 
                 //close the form
                 this.Close();
+                
             }
             catch (Exception)
             {
@@ -105,6 +108,12 @@ namespace Software2Csharp
                 
             }
 
+        }
+
+
+        private void FormUpdateAppointment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Event_UpdateAppointmentFormClose.Invoke(this, e);
         }
     }
 }
