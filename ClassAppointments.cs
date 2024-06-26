@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,6 +107,21 @@ namespace Software2Csharp
 
         public void removeAppointment(int AppointmentID) 
         {
+            //delete appointment
+            sql = $"DELETE FROM appointment WHERE appointmentId='{AppointmentID}';";
+
+            // create the connection and assign the sql to the command
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cmd = new MySqlCommand(sql, cnn);
+
+            // open the connection
+            cnn.Open();
+
+            //run the command 
+            cmd.ExecuteNonQuery();
+
+            // close the connection
+            cnn.Close();
 
         }
 

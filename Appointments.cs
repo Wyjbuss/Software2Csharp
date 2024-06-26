@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,6 +101,32 @@ namespace Software2Csharp
 
             // un subscribe
             newUpdateAppointment.Event_UpdateAppointmentFormClose -= UpdateApplicationData;
+        }
+
+        private void guna2ButtonDeleteAppointment_Click(object sender, EventArgs e)
+        {
+            // get the current appointment
+            try
+            {
+                var obj = guna2DataGridViewAppointments.SelectedRows[0];
+                string appointmentId = obj.Cells[0].Value.ToString();
+
+                // call remove appointment
+                // good spot from a lamda function
+                //ClassAppointments temp  temp.removeAppointment(int.Parse(appointmentId));
+                ClassAppointments temp = new ClassAppointments();
+                temp.removeAppointment(int.Parse(appointmentId));
+
+                // load that data that is on that date
+                LoadMySqlData loadMySqlData = new LoadMySqlData();
+                loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments, startDate);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("couldn't get the appointment ID");
+            }
+
         }
     }
 }
