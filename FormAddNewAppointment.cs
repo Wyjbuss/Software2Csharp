@@ -29,28 +29,33 @@ namespace Software2Csharp
                 {
                     if (SceduleFrom9_5_M_F())
                     {
-                    // add the appointment
-                    ClassAppointments newAppointment = new ClassAppointments();
+                        if (SceduleFromMondayToFriday())
+                        {
 
-                        //capture the inputs and add them to the newAppointment                      
-                        newAppointment.title = guna2TextBoxTitle.Text;
-                        newAppointment.description = guna2TextBoxDescription.Text;
-                        newAppointment.location = guna2TextBoxLocation.Text;
-                        newAppointment.contact = guna2TextBoxContact.Text;
-                        newAppointment.url = guna2TextBoxURL.Text;
-                        newAppointment.start = dateTimePickerStart.Value;
-                        newAppointment.end = dateTimePickerEnd.Value;
+                            // add the appointment
+                            ClassAppointments newAppointment = new ClassAppointments();
+
+                            //capture the inputs and add them to the newAppointment                      
+                            newAppointment.title = guna2TextBoxTitle.Text;
+                            newAppointment.description = guna2TextBoxDescription.Text;
+                            newAppointment.location = guna2TextBoxLocation.Text;
+                            newAppointment.contact = guna2TextBoxContact.Text;
+                            newAppointment.url = guna2TextBoxURL.Text;
+                            newAppointment.start = dateTimePickerStart.Value;
+                            newAppointment.end = dateTimePickerEnd.Value;
 
                      
-                        newAppointment.addAppointment(newAppointment);
+                            newAppointment.addAppointment(newAppointment);
 
                     // add the appointment to the database
                     //newAppointment.addAppointment();
 
                         //close the form when completed
                         this.Close();
+                        }else Console.WriteLine("Error: can't ass appointment, day needs to be between Monday - Friday");
 
-                    }else Console.WriteLine("Error: can't add appointment, time needs to be between 9AM and 5PM");
+                    }
+                    else Console.WriteLine("Error: can't add appointment, time needs to be between 9AM and 5PM");
 
                 }
                 catch (Exception)
@@ -107,6 +112,17 @@ namespace Software2Csharp
                 return true;
             }
             else return false;
+        }
+
+        private bool SceduleFromMondayToFriday()
+        {
+            DateTime currentDate = dateTimePickerStart.Value;
+            if (currentDate.DayOfWeek == DayOfWeek.Saturday || currentDate.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return false;
+
+            }
+            else return true;
         }
     }
 }
