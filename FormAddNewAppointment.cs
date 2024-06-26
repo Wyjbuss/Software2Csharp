@@ -1,12 +1,4 @@
-﻿using ServiceStack.Text;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Software2Csharp
@@ -14,6 +6,8 @@ namespace Software2Csharp
     public partial class FormAddAppointment : Form
     {
         bool bool_NotOnSameDay = true;
+
+        public event EventHandler Event_ClosedAddNewAppointment;
         public FormAddAppointment()
         {
             InitializeComponent();
@@ -21,7 +15,7 @@ namespace Software2Csharp
 
         private void guna2ButtonAdd_Click(object sender, EventArgs e)
         {
-            
+
 
             //handel the incorrect inputs
             if (AllAreaaNoErrors())
@@ -47,7 +41,7 @@ namespace Software2Csharp
                                 newAppointment.start = dateTimePickerStart.Value;
                                 newAppointment.end = dateTimePickerEnd.Value;
 
-                     
+
                                 newAppointment.addAppointment(newAppointment);
 
                                 // add the appointment to the database
@@ -57,7 +51,8 @@ namespace Software2Csharp
                                 this.Close();
                             }
 
-                        }else Console.WriteLine("Error: can't ass appointment, day needs to be between Monday - Friday");
+                        }
+                        else Console.WriteLine("Error: can't ass appointment, day needs to be between Monday - Friday");
 
                     }
                     else Console.WriteLine("Error: can't add appointment, time needs to be between 9AM and 5PM");
@@ -68,7 +63,7 @@ namespace Software2Csharp
 
                     Console.WriteLine("Can't add appointment, invalid feilds");
                 }
-                
+
 
             }
 
@@ -86,9 +81,9 @@ namespace Software2Csharp
             newAppointment.end = dateTimePickerEnd.Value;
 
             return newAppointment;
-        
 
-            
+
+
         }
 
         private bool AllAreaaNoErrors()
@@ -110,9 +105,9 @@ namespace Software2Csharp
         private bool SceduleFrom9_5_M_F()
         {
             TimeSpan currentTime = dateTimePickerStart.Value.TimeOfDay;
-            TimeSpan startTime = new TimeSpan(9,0,0);
+            TimeSpan startTime = new TimeSpan(9, 0, 0);
             TimeSpan endTime = new TimeSpan(17, 0, 0);
-            if (currentTime < endTime && currentTime > startTime) 
+            if (currentTime < endTime && currentTime > startTime)
             {
                 return true;
             }
@@ -130,11 +125,16 @@ namespace Software2Csharp
             else return true;
         }
 
+        private void FormAddAppointment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Event_ClosedAddNewAppointment.Invoke(this, e);
+        }
+
         //public void NotOnSameDateTimeAsAnother(DataGridView DGV)
         //{
         //    try
         //    {
-                
+
         //    }
         //    catch (Exception)
         //    {
@@ -167,6 +167,6 @@ namespace Software2Csharp
         //        bool_NotOnSameDay = false; 
         //        Console.WriteLine("Error: DateTime error");
         //    }
-       // }
+        // }
     }
 }

@@ -29,6 +29,18 @@ namespace Software2Csharp
         {
             newAppointmentForm = new FormAddAppointment();
             newAppointmentForm.Show();
+            newAppointmentForm.Event_ClosedAddNewAppointment += NewAppointmentForm_Event_ClosedAddNewAppointment;
+        }
+
+        private void NewAppointmentForm_Event_ClosedAddNewAppointment(object sender, EventArgs e)
+        {
+            //refesh data
+            // load that data that is on that date
+            LoadMySqlData loadMySqlData = new LoadMySqlData();
+            loadMySqlData.LoadAppointmentDataIntoGridView(guna2DataGridViewAppointments, startDate);
+
+            newAppointmentForm.Event_ClosedAddNewAppointment -= NewAppointmentForm_Event_ClosedAddNewAppointment;
+           
         }
 
         private void monthCalendarAppointments_DateSelected(object sender, DateRangeEventArgs e)
