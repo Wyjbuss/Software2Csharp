@@ -13,6 +13,7 @@ namespace Software2Csharp
 {
     public partial class FormAddAppointment : Form
     {
+        bool bool_NotOnSameDay = true;
         public FormAddAppointment()
         {
             InitializeComponent();
@@ -31,27 +32,31 @@ namespace Software2Csharp
                     {
                         if (SceduleFromMondayToFriday())
                         {
+                            if (bool_NotOnSameDay)
+                            {
 
-                            // add the appointment
-                            ClassAppointments newAppointment = new ClassAppointments();
+                                // add the appointment
+                                ClassAppointments newAppointment = new ClassAppointments();
 
-                            //capture the inputs and add them to the newAppointment                      
-                            newAppointment.title = guna2TextBoxTitle.Text;
-                            newAppointment.description = guna2TextBoxDescription.Text;
-                            newAppointment.location = guna2TextBoxLocation.Text;
-                            newAppointment.contact = guna2TextBoxContact.Text;
-                            newAppointment.url = guna2TextBoxURL.Text;
-                            newAppointment.start = dateTimePickerStart.Value;
-                            newAppointment.end = dateTimePickerEnd.Value;
+                                //capture the inputs and add them to the newAppointment                      
+                                newAppointment.title = guna2TextBoxTitle.Text;
+                                newAppointment.description = guna2TextBoxDescription.Text;
+                                newAppointment.location = guna2TextBoxLocation.Text;
+                                newAppointment.contact = guna2TextBoxContact.Text;
+                                newAppointment.url = guna2TextBoxURL.Text;
+                                newAppointment.start = dateTimePickerStart.Value;
+                                newAppointment.end = dateTimePickerEnd.Value;
 
                      
-                            newAppointment.addAppointment(newAppointment);
+                                newAppointment.addAppointment(newAppointment);
 
-                    // add the appointment to the database
-                    //newAppointment.addAppointment();
+                                // add the appointment to the database
+                                //newAppointment.addAppointment();
 
-                        //close the form when completed
-                        this.Close();
+                                //close the form when completed
+                                this.Close();
+                            }
+
                         }else Console.WriteLine("Error: can't ass appointment, day needs to be between Monday - Friday");
 
                     }
@@ -124,5 +129,44 @@ namespace Software2Csharp
             }
             else return true;
         }
+
+        //public void NotOnSameDateTimeAsAnother(DataGridView DGV)
+        //{
+        //    try
+        //    {
+                
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+
+        //    try
+        //    {
+        //        DateTime valueToCompareToStart; 
+        //        DateTime valueToCompareToEnd;
+
+        //        DateTime currentDate = dateTimePickerStart.Value;
+        //        // if start time is not within any other time and date
+        //        if (/*currentDate.Date == valueToCompareToStart.Date*/)
+        //        {
+        //            // needs to
+        //            if (currentDate.TimeOfDay < valueToCompareToStart.TimeOfDay || currentDate.TimeOfDay > valueToCompareToEnd.TimeOfDay)
+        //            {
+        //                bool_NotOnSameDay = true;
+        //                Console.WriteLine("Time not in conflict, appointment sceduled!");
+        //            }
+        //            else { bool_NotOnSameDay = false; Console.WriteLine("Time of Day is in conflict with anoter"); }
+        //        }
+        //        else { bool_NotOnSameDay = true; Console.WriteLine("Not on a date as another appointment, appointment sceduled!"); }
+
+        //        }
+        //    catch (Exception)
+        //    {
+        //        bool_NotOnSameDay = false; 
+        //        Console.WriteLine("Error: DateTime error");
+        //    }
+       // }
     }
 }
