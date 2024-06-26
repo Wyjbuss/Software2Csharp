@@ -128,5 +128,11 @@ namespace Software2Csharp
             }
 
         }
+
+        private bool SceduleFrom9_5_M_F ()
+        {
+            return false;
+        }
+
     }
 }

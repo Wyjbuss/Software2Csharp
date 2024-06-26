@@ -50,16 +50,20 @@
             // 
             // dateTimePickerEnd
             // 
+            this.dateTimePickerEnd.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEnd.Location = new System.Drawing.Point(80, 161);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(189, 20);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(149, 20);
             this.dateTimePickerEnd.TabIndex = 49;
             // 
             // dateTimePickerStart
             // 
+            this.dateTimePickerStart.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerStart.Location = new System.Drawing.Point(83, 108);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(186, 20);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(146, 20);
             this.dateTimePickerStart.TabIndex = 48;
             // 
             // labelStart

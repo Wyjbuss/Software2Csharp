@@ -26,7 +26,7 @@ namespace Software2Csharp
         public string contact;
         public string type;
         public string url;
-        public DateTime start;
+        public DateTime start { get; set; }
         public DateTime end;
         public DateTime createdDate;
         public string createdBy;
@@ -64,49 +64,63 @@ namespace Software2Csharp
              
         }
 
-        public void addAppointment()
+        public void addAppointment(ClassAppointments appointment)
         {
-            ClassAppointments appointment = this;
-            cnn = new MySqlConnection(myConnectionDatabaseString);
-            sql = $"SET FOREIGN_KEY_CHECKS=0;";
+            try
+            {
+
             
-            cmd = new MySqlCommand(sql, cnn);
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-
-            createdDate = DateTime.Now;
-            lastUpdate = DateTime.Now;
+            //ClassAppointments appointment = this;
+                cnn = new MySqlConnection(myConnectionDatabaseString);
+                sql = $"SET FOREIGN_KEY_CHECKS=0;";
             
-            // create database entry and add the data in this appointment 
+                cmd = new MySqlCommand(sql, cnn);
+                cnn.Open();
+                cmd.ExecuteNonQuery();
 
-            sql = $"INSERT INTO appointment VALUES({appointment.appointmentId}," +
-                $"{appointment.customerId}," +
-                $"{appointment.userId}," +
-                $"'{appointment.title}'," +
-                $"'{appointment.description}'," +
-                $"'{appointment.location}'," +
-                $"'{appointment.contact}'," +
-                $"'{appointment.type}'," +
-                $"'{appointment.url}'," +
-                $"'{appointment.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"'{appointment.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"'{appointment.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"'{appointment.createdBy}'," +
-                $"'{appointment.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"'{appointment.lastUpdateBy}');";
+                createdDate = DateTime.Now;
+                lastUpdate = DateTime.Now;
+            
+                // create database entry and add the data in this appointment 
 
-            cmd = new MySqlCommand(sql, cnn);
-            cmd.ExecuteNonQuery();
+                sql = $"INSERT INTO appointment VALUES({appointment.appointmentId}," +
+                    $"{appointment.customerId}," +
+                    $"{appointment.userId}," +
+                    $"'{appointment.title}'," +
+                    $"'{appointment.description}'," +
+                    $"'{appointment.location}'," +
+                    $"'{appointment.contact}'," +
+                    $"'{appointment.type}'," +
+                    $"'{appointment.url}'," +
+                    $"'{appointment.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.createdBy}'," +
+                    $"'{appointment.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.lastUpdateBy}');";
 
-            sql = "SET FOREIGN_KEY_CHECKS=1;";
-            cmd = new MySqlCommand(sql, cnn);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+                cmd = new MySqlCommand(sql, cnn);
+                cmd.ExecuteNonQuery();
+
+                sql = "SET FOREIGN_KEY_CHECKS=1;";
+                cmd = new MySqlCommand(sql, cnn);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                Console.WriteLine($"added appointment with a position of {appointmentId}");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Failed to add new appointment");
+            }
 
         }
 
         public void removeAppointment(int AppointmentID) 
         {
+            try
+            {
+
             //delete appointment
             sql = $"DELETE FROM appointment WHERE appointmentId='{AppointmentID}';";
 
@@ -122,6 +136,14 @@ namespace Software2Csharp
 
             // close the connection
             cnn.Close();
+
+                Console.WriteLine($"Appointment deleted at position {AppointmentID}");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Cant remove appointment");
+            }
 
         }
 

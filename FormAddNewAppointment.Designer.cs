@@ -267,16 +267,22 @@
             // 
             // dateTimePickerStart
             // 
+            this.dateTimePickerStart.AllowDrop = true;
+            this.dateTimePickerStart.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerStart.Location = new System.Drawing.Point(69, 116);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(186, 20);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(145, 20);
             this.dateTimePickerStart.TabIndex = 30;
+            this.dateTimePickerStart.Value = new System.DateTime(2024, 6, 26, 15, 4, 0, 0);
             // 
             // dateTimePickerEnd
             // 
+            this.dateTimePickerEnd.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEnd.Location = new System.Drawing.Point(66, 169);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(189, 20);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(148, 20);
             this.dateTimePickerEnd.TabIndex = 31;
             // 
             // FormAddAppointment
@@ -304,6 +310,7 @@
             this.Controls.Add(this.guna2TextBoxTitle);
             this.Name = "FormAddAppointment";
             this.Text = "Add Appointment";
+            this.Load += new System.EventHandler(this.FormAddAppointment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

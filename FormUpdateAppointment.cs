@@ -44,8 +44,7 @@ namespace Software2Csharp
             guna2TextBoxLocation.Text = location;
             guna2TextBoxContact.Text = contact;
             guna2TextBoxType.Text = type;
-            guna2TextBoxURL.Text = url;
-
+            guna2TextBoxURL.Text = url;            
 
 
             this.appointmentId = appointmentId;
