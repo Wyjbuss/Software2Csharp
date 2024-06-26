@@ -131,7 +131,7 @@ namespace Software2Csharp
                 $"end='{updatedInfo.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
                 $"lastUpdate='{updatedInfo.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
                 $"lastUpdateBy='{updatedInfo.lastUpdateBy}'" +
-                $"WHERE customerId={appointmentId}";
+                $"WHERE appointmentId={appointmentId}";
 
 
             // create the connection and assign the sql to the command

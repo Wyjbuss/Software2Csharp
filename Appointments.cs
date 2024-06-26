@@ -49,6 +49,9 @@ namespace Software2Csharp
 
         private void guna2ButtonUpdateAppointment_Click(object sender, EventArgs e)
         {
+
+            try
+            {
             var obj = guna2DataGridViewAppointments.SelectedRows[0];
             string appointmentId = obj.Cells[0].Value.ToString();
             string customerId = obj.Cells[1].Value.ToString();
@@ -66,13 +69,20 @@ namespace Software2Csharp
             string lastUpdate = obj.Cells[13].Value.ToString();
             string lastUpdateBy = obj.Cells[14].Value.ToString();
 
+                newUpdateAppointment = new FormUpdateAppointment(appointmentId, customerId, userId, title, description, location, contact, type, URL, start, end, createDate, createBy, lastUpdate, lastUpdateBy);
 
-            newUpdateAppointment = new FormUpdateAppointment(appointmentId,customerId,userId,title,description,location,contact,type,URL,start,end,createDate,createBy,lastUpdate,lastUpdateBy);
-            
-            // set the feilds to = the values from this
+                // set the feilds to = the values from this
 
 
-            newUpdateAppointment.Show();
+                newUpdateAppointment.Show();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("unable to show update appointment form: Maybe try selecting a date and an appointment");
+                throw;
+            }
+
+          
 
         }
     }

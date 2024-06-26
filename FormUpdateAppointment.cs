@@ -13,7 +13,23 @@ namespace Software2Csharp
 {
     public partial class FormUpdateAppointment : Form
     {
-        ClassAppointments newAppointment; 
+        ClassAppointments newAppointment;
+
+        string appointmentId;
+        string customerId;
+        string userId;
+        string title;
+        string description;
+        string location;
+        string contact;
+        string type;
+        string url;
+        string start;
+        string end;
+        string createDate;
+        string createBy;
+        string lastUpdate;
+        string lastUpdateBy;
         public FormUpdateAppointment()
         {
             InitializeComponent();
@@ -27,6 +43,24 @@ namespace Software2Csharp
             guna2TextBoxContact.Text = contact;
             guna2TextBoxType.Text = type;
             guna2TextBoxURL.Text = url;
+
+
+
+            this.appointmentId = appointmentId;
+            this.customerId = customerId;
+            this.userId = userId;
+            this.title = title;
+            this.description = description;
+            this.location = location;
+            this.contact = contact;
+            this.type = type;
+            this.url = url;
+            this.start = start;
+            this.end = end;
+            this.createDate = createDate;
+            this.createBy = createBy;
+            this.lastUpdate = lastUpdate;
+            this.lastUpdateBy = lastUpdateBy;
             
         }
 
@@ -43,8 +77,12 @@ namespace Software2Csharp
             newAppointment = new ClassAppointments();
 
             // get all the feilds of this form and add it to the new appointment
-            newAppointment.customerId  = 1;
-            newAppointment.userId      = 0;
+            try
+            {
+                newAppointment.appointmentId = int.Parse(appointmentId);
+
+            newAppointment.customerId  = int.Parse(customerId);
+            newAppointment.userId      = int.Parse(userId);
             newAppointment.title       = this.guna2TextBoxTitle.Text;
             newAppointment.description = this.guna2TextBoxDescription.Text;
             newAppointment.location    = this.guna2TextBoxLocation.Text;
@@ -53,6 +91,19 @@ namespace Software2Csharp
             newAppointment.url         = this.guna2TextBoxURL.Text;
             newAppointment.start       = this.dateTimePickerStart.Value;
             newAppointment.end         = this.dateTimePickerEnd.Value;
+
+                // add it to the database
+                newAppointment.updateAppointment(int.Parse(appointmentId), newAppointment);
+
+                //close the form
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Cant update appointment for some reason!");
+                
+            }
 
         }
     }

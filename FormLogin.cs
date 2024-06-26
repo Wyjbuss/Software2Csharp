@@ -238,5 +238,10 @@ namespace Software2Csharp
             }
 
         }
+
+        private void buttonLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
