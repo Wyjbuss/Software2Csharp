@@ -5,7 +5,8 @@ namespace Software2Csharp
 {
     public partial class FormAddAppointment : Form
     {
-        bool bool_NotOnSameDay = true;
+
+        DataGridView AppointmentDateGridView = null;
 
         public event EventHandler Event_ClosedAddNewAppointment;
         public FormAddAppointment()
@@ -25,8 +26,8 @@ namespace Software2Csharp
                     if (SceduleFrom9_5_M_F())
                     {
                         if (SceduleFromMondayToFriday())
-                        {
-                            if (bool_NotOnSameDay)
+                        {                            
+                            if (NoAppointmentOverlap())
                             {
 
                                 // add the appointment
@@ -49,10 +50,10 @@ namespace Software2Csharp
 
                                 //close the form when completed
                                 this.Close();
-                            }
+                            }else Console.WriteLine("Error: Appointment overlap");
 
                         }
-                        else Console.WriteLine("Error: can't ass appointment, day needs to be between Monday - Friday");
+                        else Console.WriteLine("Error: can't access appointment, day needs to be between Monday - Friday");
 
                     }
                     else Console.WriteLine("Error: can't add appointment, time needs to be between 9AM and 5PM");
@@ -130,43 +131,67 @@ namespace Software2Csharp
             Event_ClosedAddNewAppointment.Invoke(this, e);
         }
 
-        //public void NotOnSameDateTimeAsAnother(DataGridView DGV)
-        //{
-        //    try
-        //    {
+        //function only works if the user clicks on a date first.
+        public void PassOnDataGridView(DataGridView DGV) 
+        {
+            AppointmentDateGridView = DGV;
+        }
+        private bool NoAppointmentOverlap() {
+            DateTime selectedDateStart = dateTimePickerStart.Value;
+            DateTime selectedDateEnd = dateTimePickerEnd.Value;
 
-        //    }
-        //    catch (Exception)
-        //    {
+            try
+            {
+                if (AppointmentDateGridView.Rows == null || AppointmentDateGridView.Rows.Count == 0)
+                {
+                    Console.WriteLine("Data grid view is empty or null");
+                    return true;
+                }
+                else
+                {
+                    // loop through the datagridview and addign the vale to compair to the date of each 
+                    foreach (DataGridViewRow row in AppointmentDateGridView.Rows)
+                        {
+                        String valueToCompareToStart = row.Cells[9].Value.ToString();
+                        String valueToCompareToEnd = row.Cells[10].Value.ToString();
 
-        //        throw;
-        //    }
+                            try
+                            {
+                                if (selectedDateStart.TimeOfDay < DateTime.Parse(valueToCompareToStart).TimeOfDay || selectedDateStart.TimeOfDay > DateTime.Parse(valueToCompareToEnd).TimeOfDay)
+                                {
+                                    Console.WriteLine("Time not in conflict, appointment sceduled!");
+                                    return true;
 
-        //    try
-        //    {
-        //        DateTime valueToCompareToStart; 
-        //        DateTime valueToCompareToEnd;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Time of Day is in conflict with anoter"); 
+                                    return false;
+                                }
 
-        //        DateTime currentDate = dateTimePickerStart.Value;
-        //        // if start time is not within any other time and date
-        //        if (/*currentDate.Date == valueToCompareToStart.Date*/)
-        //        {
-        //            // needs to
-        //            if (currentDate.TimeOfDay < valueToCompareToStart.TimeOfDay || currentDate.TimeOfDay > valueToCompareToEnd.TimeOfDay)
-        //            {
-        //                bool_NotOnSameDay = true;
-        //                Console.WriteLine("Time not in conflict, appointment sceduled!");
-        //            }
-        //            else { bool_NotOnSameDay = false; Console.WriteLine("Time of Day is in conflict with anoter"); }
-        //        }
-        //        else { bool_NotOnSameDay = true; Console.WriteLine("Not on a date as another appointment, appointment sceduled!"); }
+                            }
+                            catch (Exception)
+                            {
 
-        //        }
-        //    catch (Exception)
-        //    {
-        //        bool_NotOnSameDay = false; 
-        //        Console.WriteLine("Error: DateTime error");
-        //    }
-        // }
+                                Console.WriteLine("Time day could not be found or it is null");
+                                return false;
+                            }                        
+
+                        }
+                    return false;
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Data Grid View is non existant or null program error");
+                return false;
+            }
+
+
+            
+         }
     }
 }

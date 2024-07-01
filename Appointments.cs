@@ -30,6 +30,7 @@ namespace Software2Csharp
             newAppointmentForm = new FormAddAppointment();
             newAppointmentForm.Show();
             newAppointmentForm.Event_ClosedAddNewAppointment += NewAppointmentForm_Event_ClosedAddNewAppointment;
+            newAppointmentForm.PassOnDataGridView(guna2DataGridViewAppointments);
         }
 
         private void NewAppointmentForm_Event_ClosedAddNewAppointment(object sender, EventArgs e)
