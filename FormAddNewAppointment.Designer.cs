@@ -250,7 +250,7 @@
             // labelEnd
             // 
             this.labelEnd.AutoSize = true;
-            this.labelEnd.Location = new System.Drawing.Point(31, 169);
+            this.labelEnd.Location = new System.Drawing.Point(34, 175);
             this.labelEnd.Name = "labelEnd";
             this.labelEnd.Size = new System.Drawing.Size(29, 13);
             this.labelEnd.TabIndex = 28;
@@ -268,21 +268,21 @@
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.AllowDrop = true;
-            this.dateTimePickerStart.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerStart.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(69, 116);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(66, 116);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(145, 20);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(181, 20);
             this.dateTimePickerStart.TabIndex = 30;
             this.dateTimePickerStart.Value = new System.DateTime(2024, 6, 26, 15, 4, 0, 0);
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateTimePickerEnd.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEnd.Location = new System.Drawing.Point(66, 169);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(148, 20);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(181, 20);
             this.dateTimePickerEnd.TabIndex = 31;
             // 
             // FormAddAppointment

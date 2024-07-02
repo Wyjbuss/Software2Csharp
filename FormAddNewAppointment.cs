@@ -50,7 +50,10 @@ namespace Software2Csharp
 
                                 //close the form when completed
                                 this.Close();
-                            }else Console.WriteLine("Error: Appointment overlap");
+
+                                Console.WriteLine("Appointment Added!");
+                            }
+                            else Console.WriteLine("Error: Appointment overlap");
 
                         }
                         else Console.WriteLine("Error: can't access appointment, day needs to be between Monday - Friday");
@@ -159,8 +162,10 @@ namespace Software2Csharp
                             {
                                 if (selectedDateStart.TimeOfDay < DateTime.Parse(valueToCompareToStart).TimeOfDay || selectedDateStart.TimeOfDay > DateTime.Parse(valueToCompareToEnd).TimeOfDay)
                                 {
-                                    Console.WriteLine("Time not in conflict, appointment sceduled!");
-                                    return true;
+                                    Console.WriteLine($"Checked item {row.Index}");
+                                    //Console.WriteLine("Time not in conflict, appointment sceduled!");
+                                    //return true;
+                                continue;
 
                                 }
                                 else
@@ -178,7 +183,8 @@ namespace Software2Csharp
                             }                        
 
                         }
-                    return false;
+                    // after the loop is successfull then return true
+                    return true;
 
                 }
 
