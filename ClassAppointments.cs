@@ -1,10 +1,6 @@
 ﻿using MySqlConnector;
-using Mysqlx.Crud;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Software2Csharp
 {
@@ -32,12 +28,12 @@ namespace Software2Csharp
         public string createdBy;
         public DateTime lastUpdate;
         public string lastUpdateBy;
-       
+
 
         // link to customer
 
         //get current appointments and prevent from setting one that overlaps
-        public ClassAppointments() 
+        public ClassAppointments()
         {
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cnn.Open();
@@ -47,7 +43,7 @@ namespace Software2Csharp
 
             appointmentId = cmd.ExecuteNonQuery() + 1;
             title = $"newAppointmentTitle {appointmentId.ToString()}";
-            
+
             customerId = 0; userId = 0;
             url = "None";
             createdBy = "test";
@@ -55,13 +51,13 @@ namespace Software2Csharp
             type = "None";
             contact = "None";
             location = "None";
-            description ="None";
+            description = "None";
 
             start = DateTime.Now;
             end = DateTime.Now;
 
             cnn.Close();
-             
+
         }
 
         public void addAppointment(ClassAppointments appointment)
@@ -69,18 +65,18 @@ namespace Software2Csharp
             try
             {
 
-            
-            //ClassAppointments appointment = this;
+
+                //ClassAppointments appointment = this;
                 cnn = new MySqlConnection(myConnectionDatabaseString);
                 sql = $"SET FOREIGN_KEY_CHECKS=0;";
-            
+
                 cmd = new MySqlCommand(sql, cnn);
                 cnn.Open();
                 cmd.ExecuteNonQuery();
 
                 createdDate = DateTime.Now;
                 lastUpdate = DateTime.Now;
-            
+
                 // create database entry and add the data in this appointment 
 
                 sql = $"INSERT INTO appointment VALUES({appointment.appointmentId}," +
@@ -116,26 +112,26 @@ namespace Software2Csharp
 
         }
 
-        public void removeAppointment(int AppointmentID) 
+        public void removeAppointment(int AppointmentID)
         {
             try
             {
 
-            //delete appointment
-            sql = $"DELETE FROM appointment WHERE appointmentId='{AppointmentID}';";
+                //delete appointment
+                sql = $"DELETE FROM appointment WHERE appointmentId='{AppointmentID}';";
 
-            // create the connection and assign the sql to the command
-            cnn = new MySqlConnection(myConnectionDatabaseString);
-            cmd = new MySqlCommand(sql, cnn);
+                // create the connection and assign the sql to the command
+                cnn = new MySqlConnection(myConnectionDatabaseString);
+                cmd = new MySqlCommand(sql, cnn);
 
-            // open the connection
-            cnn.Open();
+                // open the connection
+                cnn.Open();
 
-            //run the command 
-            cmd.ExecuteNonQuery();
+                //run the command 
+                cmd.ExecuteNonQuery();
 
-            // close the connection
-            cnn.Close();
+                // close the connection
+                cnn.Close();
 
                 Console.WriteLine($"Appointment deleted at position {AppointmentID}");
             }
@@ -147,7 +143,7 @@ namespace Software2Csharp
 
         }
 
-        public void updateAppointment(int AppointmentID, ClassAppointments updatedInfo) 
+        public void updateAppointment(int AppointmentID, ClassAppointments updatedInfo)
         {
             // get the current appointment by ID and update the data
 
@@ -186,7 +182,73 @@ namespace Software2Csharp
             cnn.Close();
 
         }
+
+        public void FindTimesOfAppointments(DataGridView DGV)
+        {
+            try
+            {
+                if (DGV.Rows == null || DGV.Rows.Count == 0)
+                {
+                    Console.WriteLine("Data grid view is empty or null");
+
+                }
+                else
+                {
+                    // loop through the datagridview and addign the vale to compair to the date of each 
+                    foreach (DataGridViewRow row in DGV.Rows)
+                    {
+                        // this is the index of the start time of the appointment
+                        String valueToCompareToStart = row.Cells[9].Value.ToString();
+
+                        //String valueToCompareToEnd = row.Cells[10].Value.ToString();
+
+                        try
+                        {
+                            if (DateTime.Now.Date == DateTime.Parse(valueToCompareToStart).Date)
+                            {
+                                //if true then run the timer 15min function and pass the time
+                                Notification notification = new Notification();
+                                //notification.Notifications(DateTime.Parse(valueToCompareToStart));
+                                bool hasBeennotifyed = notification.Notifications(DateTime.Parse(valueToCompareToStart));                                
+                                if (hasBeennotifyed) { break; }
+                                //Console.WriteLine($"Checked item {row.Index}");
+                                //Console.WriteLine("Time not in conflict, appointment sceduled!");
+                                //return true;
+                                continue;
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Time of Day is in conflict with anoter");
+
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+
+                            Console.WriteLine("Time day could not be found or it is null");
+
+                        }
+
+                    }
+                    // after the loop is successfull then return true
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Data Grid View is non existant or null program error");
+
+            }
+
+
+
+        }
     }
 
-   
+
 }

@@ -12,6 +12,7 @@ namespace Software2Csharp
 {
     public partial class FormAppointmentMain : Form
     {
+        string user;
         public event EventHandler onAppExit;
         public FormAppointmentMain()
         {
@@ -34,6 +35,7 @@ namespace Software2Csharp
         public void setLabelHelloUsr(string usr)
         {
             labelHelloUsr.Text = usr;
+            user = usr;
         }
         public void closeApp()
         {
