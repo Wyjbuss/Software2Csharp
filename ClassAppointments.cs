@@ -209,7 +209,7 @@ namespace Software2Csharp
                                 //if true then run the timer 15min function and pass the time
                                 Notification notification = new Notification();
                                 //notification.Notifications(DateTime.Parse(valueToCompareToStart));
-                                bool hasBeennotifyed = notification.Notifications(DateTime.Parse(valueToCompareToStart));                                
+                                bool hasBeennotifyed = notification.Notifications(DateTime.Parse(valueToCompareToStart));
                                 if (hasBeennotifyed) { break; }
                                 //Console.WriteLine($"Checked item {row.Index}");
                                 //Console.WriteLine("Time not in conflict, appointment sceduled!");

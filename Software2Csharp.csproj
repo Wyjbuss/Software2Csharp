@@ -304,6 +304,7 @@
     <Compile Include="Appointments.Designer.cs">
       <DependentUpon>Appointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="RunReport.cs" />
     <Compile Include="ClassAppointments.cs" />
     <Compile Include="ClassCustomers.cs" />
     <Compile Include="Customers.cs">

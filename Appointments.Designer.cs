@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelAppointments = new System.Windows.Forms.Label();
             this.guna2ButtonUpdateAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonDeleteAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonCreateNewAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.monthCalendarAppointments = new System.Windows.Forms.MonthCalendar();
             this.guna2DataGridViewAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2CircleButtonNumOfAppointTypes = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.labelReports = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewAppointments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             this.guna2ButtonUpdateAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2ButtonUpdateAppointment.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonUpdateAppointment.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonUpdateAppointment.Location = new System.Drawing.Point(11, 365);
+            this.guna2ButtonUpdateAppointment.Location = new System.Drawing.Point(11, 370);
             this.guna2ButtonUpdateAppointment.Name = "guna2ButtonUpdateAppointment";
             this.guna2ButtonUpdateAppointment.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonUpdateAppointment.TabIndex = 6;
@@ -75,7 +77,7 @@
             this.guna2ButtonDeleteAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2ButtonDeleteAppointment.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonDeleteAppointment.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonDeleteAppointment.Location = new System.Drawing.Point(11, 416);
+            this.guna2ButtonDeleteAppointment.Location = new System.Drawing.Point(11, 421);
             this.guna2ButtonDeleteAppointment.Name = "guna2ButtonDeleteAppointment";
             this.guna2ButtonDeleteAppointment.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonDeleteAppointment.TabIndex = 5;
@@ -109,28 +111,28 @@
             // 
             this.guna2DataGridViewAppointments.AllowUserToAddRows = false;
             this.guna2DataGridViewAppointments.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridViewAppointments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridViewAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridViewAppointments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridViewAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DataGridViewAppointments.ColumnHeadersHeight = 4;
             this.guna2DataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridViewAppointments.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridViewAppointments.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridViewAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridViewAppointments.Location = new System.Drawing.Point(330, 35);
+            this.guna2DataGridViewAppointments.Location = new System.Drawing.Point(408, 35);
             this.guna2DataGridViewAppointments.MultiSelect = false;
             this.guna2DataGridViewAppointments.Name = "guna2DataGridViewAppointments";
             this.guna2DataGridViewAppointments.ReadOnly = true;
@@ -159,10 +161,37 @@
             this.guna2DataGridViewAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridViewAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // guna2CircleButtonNumOfAppointTypes
+            // 
+            this.guna2CircleButtonNumOfAppointTypes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButtonNumOfAppointTypes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButtonNumOfAppointTypes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButtonNumOfAppointTypes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButtonNumOfAppointTypes.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButtonNumOfAppointTypes.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButtonNumOfAppointTypes.Location = new System.Drawing.Point(271, 175);
+            this.guna2CircleButtonNumOfAppointTypes.Name = "guna2CircleButtonNumOfAppointTypes";
+            this.guna2CircleButtonNumOfAppointTypes.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButtonNumOfAppointTypes.Size = new System.Drawing.Size(100, 68);
+            this.guna2CircleButtonNumOfAppointTypes.TabIndex = 9;
+            this.guna2CircleButtonNumOfAppointTypes.Text = "Number Appointment Types";
+            this.guna2CircleButtonNumOfAppointTypes.Click += new System.EventHandler(this.guna2CircleButtonNumOfAppointTypes_Click);
+            // 
+            // labelReports
+            // 
+            this.labelReports.AutoSize = true;
+            this.labelReports.Location = new System.Drawing.Point(302, 159);
+            this.labelReports.Name = "labelReports";
+            this.labelReports.Size = new System.Drawing.Size(44, 13);
+            this.labelReports.TabIndex = 10;
+            this.labelReports.Text = "Reports";
+            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelReports);
+            this.Controls.Add(this.guna2CircleButtonNumOfAppointTypes);
             this.Controls.Add(this.guna2DataGridViewAppointments);
             this.Controls.Add(this.monthCalendarAppointments);
             this.Controls.Add(this.guna2ButtonUpdateAppointment);
@@ -170,7 +199,7 @@
             this.Controls.Add(this.guna2ButtonCreateNewAppointment);
             this.Controls.Add(this.labelAppointments);
             this.Name = "Appointments";
-            this.Size = new System.Drawing.Size(946, 476);
+            this.Size = new System.Drawing.Size(984, 481);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewAppointments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,5 +214,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2ButtonCreateNewAppointment;
         private System.Windows.Forms.MonthCalendar monthCalendarAppointments;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewAppointments;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButtonNumOfAppointTypes;
+        private System.Windows.Forms.Label labelReports;
     }
 }

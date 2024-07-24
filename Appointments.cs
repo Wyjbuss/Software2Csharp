@@ -148,6 +148,12 @@ namespace Software2Csharp
         {
             return false;
         }
-       
+
+        private void guna2CircleButtonNumOfAppointTypes_Click(object sender, EventArgs e)
+        {
+            RunReport runReport = new RunReport();
+            DateTime date = monthCalendarAppointments.SelectionStart;
+            runReport.AppointmentTypesByMonth(date);
+        }
     }
 }
