@@ -1,17 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
+using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Software2Csharp
 {
     public class RunReport
     {
         // other varibales
-        public object monthOfAppointments;
+        public int NumOfAppointmentTyples;
         // connection info
         public MySqlConnection cnn;
         public MySqlCommand cmd;
@@ -25,7 +29,7 @@ namespace Software2Csharp
             // quiry for the month that is currentlly selected adn get the type
             string selectedYear = selectedDate.Year.ToString();
             string selectedMonth = selectedDate.Month.ToString();
-            sql = "SELECT Type FROM appointment " +
+            sql = "SELECT count(distinct Type) FROM appointment " +
                   $"WHERE Start >= '{selectedYear}-{selectedMonth}-01' AND " +
                   $"Start < '{selectedYear}-{selectedMonth}-01' + interval 1 month;";
             
@@ -34,14 +38,39 @@ namespace Software2Csharp
             cnn.Open();
             cmd = new MySqlCommand(sql, cnn);
             // this is = to None because that is the value of the first line in the types of this month
-            monthOfAppointments = cmd.ExecuteScalar();
+            NumOfAppointmentTyples = int.Parse( cmd.ExecuteScalar().ToString()); // this will be a number
             cnn.Close();
 
             // spit out report into file that is the number of different appoint types
+            string fileName = "NumOfAppointment.txt";
+            string fileContent = $"Number of different types of appointments for this month of chosen day: {selectedDate}" +
+                $"\nReport ran on: {DateTime.Now}" +
+                $"\nNumber of different appointment times that month are: {NumOfAppointmentTyples}";
 
+            File.WriteAllText(fileName, fileContent );
 
             // Then open that file
+            Action<string> openFile = filePath =>
+            {
+                if (File.Exists(filePath))
+                {
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = filePath,
+                            UseShellExecute = true // open with default application
+                        });
+                    }
+                    catch (Exception e)
+                    {
 
+                        Console.WriteLine( $"An error occurred with opening the numOfAppointments file: {e.Message}");
+                    }
+                }else Console.WriteLine("The file does not exist");
+            };
+
+            openFile(fileName);
         }
 
         public void SceduleForEachUser()
