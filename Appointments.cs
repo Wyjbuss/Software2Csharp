@@ -155,5 +155,13 @@ namespace Software2Csharp
             DateTime date = monthCalendarAppointments.SelectionStart;
             runReport.AppointmentTypesByMonth(date);
         }
+
+        private void guna2CircleSchedule_Click(object sender, EventArgs e)
+        {
+            RunReport runReport = new RunReport();
+            runReport.SceduleForEachUserByDay(guna2DataGridViewAppointments);
+
+            
+        }
     }
 }

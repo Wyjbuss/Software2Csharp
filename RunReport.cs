@@ -73,14 +73,69 @@ namespace Software2Csharp
             openFile(fileName);
         }
 
-        public void SceduleForEachUser()
+        public void SceduleForEachUserByDay(DataGridView DGV) 
         {
+            // get the day scedule of a user by date selected
+            // if datagridview is null or does not contain anything then exit
+            string fileName = "ScheduleForUsers.txt";
+            File.WriteAllText(fileName, string.Empty); // clear file before running
 
+            if (DGV == null || DGV.Rows.Count <= 0)
+            {
+                Console.WriteLine("Grid View is empty or null");
+            }
+            else
+            {
+                // loop through the datagridview
+                foreach (DataGridViewRow row in DGV.Rows)
+                {
+                    // skip row
+                    if (row.IsNewRow) continue;
+
+                    string fileContent =
+                        $"User {row.Cells[2].Value}'s Schedule:\n" +
+                        $"{row.Cells[3].Value} From: {row.Cells[9].Value} to {row.Cells[10].Value}\n";
+
+                    File.AppendAllText(fileName, fileContent);
+
+                   
+                }
+
+
+                // Then open that file
+                Action<string> openFile = filePath => // this is lambda expression
+                {
+                    if (File.Exists(filePath))
+                    {
+                        try
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = filePath,
+                                UseShellExecute = true // open with default application
+                            });
+                        }
+                        catch (Exception e)
+                        {
+
+                            Console.WriteLine($"An error occurred with opening the numOfAppointments file: {e.Message}");
+                        }
+                    }
+                    else Console.WriteLine("The file does not exist");
+                };
+
+
+                openFile(fileName);
+
+            }
+
+            // add it to a file and open it
+           
         }
 
         public void MyChoiceReport()
         {
-
+            // make this scedule by week or month also whatever the one above isnt
         }
     }
 }
