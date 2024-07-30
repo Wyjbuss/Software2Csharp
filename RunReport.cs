@@ -135,7 +135,45 @@ namespace Software2Csharp
 
         public void MyChoiceReport()
         {
-            // make this scedule by week or month also whatever the one above isnt
+            // This report will be number of distinct users 
+            sql = "SELECT count(distinct UserId) FROM appointment";
+
+            // run the quiry and store answer in varable
+            cnn = new MySqlConnection(myConnectionDatabaseString);
+            cnn.Open();
+            cmd = new MySqlCommand(sql, cnn);
+            int NumOfDistinctUsers = int.Parse(cmd.ExecuteScalar().ToString());
+            cnn.Close();
+
+            // spit out report into file that is the number of different appoint types
+            string fileName = "NumOfDistinctUsers.txt";
+            string fileContent = $"Number of different users is: {NumOfDistinctUsers}";
+
+            File.WriteAllText(fileName, fileContent);
+
+            // Then open that file
+            Action<string> openFile = filePath =>
+            {
+                if (File.Exists(filePath))
+                {
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = filePath,
+                            UseShellExecute = true // open with default application
+                        });
+                    }
+                    catch (Exception e)
+                    {
+
+                        Console.WriteLine($"An error occurred with opening the numOfAppointments file: {e.Message}");
+                    }
+                }
+                else Console.WriteLine("The file does not exist");
+            };
+
+            openFile(fileName);
         }
     }
 }

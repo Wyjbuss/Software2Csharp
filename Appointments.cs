@@ -163,5 +163,11 @@ namespace Software2Csharp
 
             
         }
+
+        private void guna2CircleButtonNumOfDistinctUsers_Click(object sender, EventArgs e)
+        {
+            RunReport runReport = new RunReport();
+            runReport.MyChoiceReport();
+        }
     }
 }
