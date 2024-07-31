@@ -22,25 +22,7 @@ namespace Software2Csharp
         {
             cnn = new MySqlConnection(myConnectionDatabaseString);
             cmd = new MySqlCommand(sql, cnn);
-            try
-            {
-                //cnn.Open();
-                Console.WriteLine("Connection from load my sql data open.");
-                dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    usrName += $"{dr.GetString("userName")};";
-                //    usrPwd += $"{dr.GetString("password")};";
-                //}
-
-                //Console.WriteLine("Username: {0} Password: {1}",usrName,usrPwd);
-                //cnn.Close();
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Cannot open connection.");
-            }
+            
         }
         public void LoadCustomerData(DataGridView dataGridView)
         {

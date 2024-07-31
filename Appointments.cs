@@ -23,8 +23,8 @@ namespace Software2Csharp
         {
             InitializeComponent();
             //load the appointments into the monthCalendar
-            ClassAppointments bah = new ClassAppointments();
-            bah.FindTimesOfAppointments(guna2DataGridViewAppointments);
+            //ClassAppointments bah = new ClassAppointments();
+            //bah.FindTimesOfAppointments(guna2DataGridViewAppointments);
         }
 
         private void guna2ButtonCreateNewAppointment_Click(object sender, EventArgs e)

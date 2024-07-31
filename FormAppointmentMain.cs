@@ -29,7 +29,8 @@ namespace Software2Csharp
         }
         private void FormAppointmentMain_Load(object sender, EventArgs e)
         {
-
+            ClassAppointments classAppointments = new ClassAppointments();
+            classAppointments.FindTimesOfAppointments();
         }
 
         public void setLabelHelloUsr(string usr)

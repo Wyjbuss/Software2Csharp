@@ -1,5 +1,10 @@
-﻿using MySqlConnector;
+﻿using Guna.UI2.WinForms;
+using MySqlConnector;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Runtime.InteropServices.ComTypes;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Software2Csharp
@@ -180,14 +185,58 @@ namespace Software2Csharp
 
             // close the connection
             cnn.Close();
-
         }
-
-        public void FindTimesOfAppointments(DataGridView DGV)
+        public void FindTimesOfAppointments()
         {
+
+            List<DateTime> StartTimes = new List<DateTime>();
+            Guna2DataGridView gridView = new Guna2DataGridView();
+           
+            sql = $"select * from appointment WHERE DATE(Start) = DATE('2024-7-31');";
+            cmd = new MySqlCommand(sql, cnn);
+
+            //object obj = cmd.ExecuteScalar();
+            
+            
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dt;
+            gridView.DataSource = bindingSource;
+
+            cnn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                DateTime startDate = reader.GetDateTime("start");
+
+                
+                StartTimes.Add(startDate);
+            }
+            Console.WriteLine("Start times are: "+StartTimes);
+            cnn.Close();
+            foreach (var item in StartTimes)
+            {
+                Console.WriteLine($"time: {item}");
+                if (StartTimes.Count <=0)
+                {
+                    Console.WriteLine("No appointments today");
+                    break;
+                }
+                else if (DateTime.Now.TimeOfDay - item.TimeOfDay < TimeSpan.FromMinutes(15))
+                {
+                    FormNotification_15minBefore FormNotify = new FormNotification_15minBefore();
+
+                    FormNotify.Show();
+                    FormNotify.TopMost = true;
+                    break;
+                }else Console.WriteLine("Error notification of appointment 15 min before ");
+            }
             try
             {
-                if (DGV.Rows == null || DGV.Rows.Count == 0)
+                if (gridView.Rows == null || gridView.Rows.Count == 0)
                 {
                     Console.WriteLine("Data grid view is empty or null");
 
@@ -195,7 +244,7 @@ namespace Software2Csharp
                 else
                 {
                     // loop through the datagridview and addign the vale to compair to the date of each 
-                    foreach (DataGridViewRow row in DGV.Rows)
+                    foreach (DataGridViewRow row in gridView.Rows)
                     {
                         // this is the index of the start time of the appointment
                         String valueToCompareToStart = row.Cells[9].Value.ToString();

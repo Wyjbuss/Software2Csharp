@@ -16,7 +16,7 @@ namespace Software2Csharp
             }
 
             // if the time that it is now minus the appointment time is 15 min or less
-            else if (DateTime.UtcNow.TimeOfDay - appointmentTime.TimeOfDay < TimeSpan.FromMinutes(15))
+            else if ( appointmentTime.TimeOfDay - DateTime.Now.TimeOfDay < TimeSpan.FromMinutes(15))
             {
                 FormNotify = new FormNotification_15minBefore();
 
