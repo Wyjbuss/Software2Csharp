@@ -198,13 +198,7 @@ namespace Software2Csharp
             //object obj = cmd.ExecuteScalar();
             
             
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            adapter.SelectCommand = cmd;
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = dt;
-            gridView.DataSource = bindingSource;
+            
 
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -234,65 +228,7 @@ namespace Software2Csharp
                     break;
                 }else Console.WriteLine("Error notification of appointment 15 min before ");
             }
-            try
-            {
-                if (gridView.Rows == null || gridView.Rows.Count == 0)
-                {
-                    Console.WriteLine("Data grid view is empty or null");
-
-                }
-                else
-                {
-                    // loop through the datagridview and addign the vale to compair to the date of each 
-                    foreach (DataGridViewRow row in gridView.Rows)
-                    {
-                        // this is the index of the start time of the appointment
-                        String valueToCompareToStart = row.Cells[9].Value.ToString();
-
-                        //String valueToCompareToEnd = row.Cells[10].Value.ToString();
-
-                        try
-                        {
-                            if (DateTime.Now.Date == DateTime.Parse(valueToCompareToStart).Date)
-                            {
-                                //if true then run the timer 15min function and pass the time
-                                Notification notification = new Notification();
-                                //notification.Notifications(DateTime.Parse(valueToCompareToStart));
-                                bool hasBeennotifyed = notification.Notifications(DateTime.Parse(valueToCompareToStart));
-                                if (hasBeennotifyed) { break; }
-                                //Console.WriteLine($"Checked item {row.Index}");
-                                //Console.WriteLine("Time not in conflict, appointment sceduled!");
-                                //return true;
-                                continue;
-
-                            }
-                            else
-                            {
-                                Console.WriteLine("Time of Day is in conflict with anoter");
-
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-
-                            Console.WriteLine("Time day could not be found or it is null");
-
-                        }
-
-                    }
-                    // after the loop is successfull then return true
-
-
-                }
-
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Data Grid View is non existant or null program error");
-
-            }
+            
 
 
 
