@@ -225,7 +225,7 @@ namespace Software2Csharp
                     Console.WriteLine("No appointments today");
                     break;
                 }
-                else if (DateTime.Now.TimeOfDay - item.TimeOfDay < TimeSpan.FromMinutes(15))
+                else if (item.TimeOfDay -DateTime.Now.TimeOfDay  < TimeSpan.FromMinutes(15))
                 {
                     FormNotification_15minBefore FormNotify = new FormNotification_15minBefore();
 
