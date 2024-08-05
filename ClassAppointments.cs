@@ -190,9 +190,10 @@ namespace Software2Csharp
         {
 
             List<DateTime> StartTimes = new List<DateTime>();
-            Guna2DataGridView gridView = new Guna2DataGridView();
+            //Guna2DataGridView gridView = new Guna2DataGridView();
            
-            sql = $"select * from appointment WHERE DATE(Start) = DATE('2024-7-31');";
+            DateTime Today = DateTime.Now;
+            sql = $"select * from appointment WHERE DATE(Start) = DATE('{Today.Year}-{Today.Month}-{Today.Day}');";
             cmd = new MySqlCommand(sql, cnn);
 
             //object obj = cmd.ExecuteScalar();
