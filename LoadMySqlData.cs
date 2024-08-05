@@ -67,6 +67,30 @@ namespace Software2Csharp
             bindingSource.DataSource = dt;
             gridView.DataSource = bindingSource;
 
+            // loop through rows and get the date time start and end times
+            foreach (DataGridViewRow row in gridView.Rows)
+            {
+                // if things aren't null
+                if (row.Cells[9].Value != null && row.Cells[10].Value != null)
+                {
+                    string utcTimeStringStart = row.Cells[9].Value.ToString();
+                    string utcTimeStringEnd = row.Cells[10].Value.ToString();
+
+                    if (DateTime.TryParse(utcTimeStringStart, out DateTime utcDateTimeStart) )
+                    {
+                        DateTime localDateTimeStart = utcDateTimeStart.ToLocalTime();
+                        row.Cells[9].Value = localDateTimeStart.ToString("yyyy-MM-dd HH:mm:ss");
+
+                        
+                    }
+                    if (DateTime.TryParse(utcTimeStringEnd, out DateTime utcDateTimeEnd))
+                    {
+                        DateTime localDateTimeEnd = utcDateTimeEnd.ToLocalTime();
+                        row.Cells[10].Value = localDateTimeEnd.ToString("yyyy-MM-dd HH:mm:ss");
+                    }
+                }
+            }
+
         }
 
     }

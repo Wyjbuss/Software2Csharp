@@ -93,8 +93,8 @@ namespace Software2Csharp
                     $"'{appointment.contact}'," +
                     $"'{appointment.type}'," +
                     $"'{appointment.url}'," +
-                    $"'{appointment.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                    $"'{appointment.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                    $"'{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'," +
                     $"'{appointment.createdDate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
                     $"'{appointment.createdBy}'," +
                     $"'{appointment.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
@@ -166,8 +166,8 @@ namespace Software2Csharp
                 $"contact='{updatedInfo.contact}'," +
                 $"type='{updatedInfo.type}'," +
                 $"url='{updatedInfo.url}'," +
-                $"start='{updatedInfo.start.ToString("yyyy-MM-dd HH:mm:ss")}'," +
-                $"end='{updatedInfo.end.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"start='{updatedInfo.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                $"end='{updatedInfo.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'," +
                 $"lastUpdate='{updatedInfo.lastUpdate.ToString("yyyy-MM-dd HH:mm:ss")}'," +
                 $"lastUpdateBy='{updatedInfo.lastUpdateBy}'" +
                 $"WHERE appointmentId={appointmentId}";
